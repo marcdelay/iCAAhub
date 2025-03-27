@@ -5,15 +5,25 @@ export async function DELETE(
   request: Request,
   context: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await context.params; // Await the params if it's a Promise
+  const { id } = await context.params;
 
   if (!id) {
     return NextResponse.json({ error: "ID is required" }, { status: 400 });
   }
 
+  const numericId = Number(id);
+  if (isNaN(numericId)) {
+    return NextResponse.json({ error: "Invalid ID format" }, { status: 400 });
+  }
+
   try {
     const post = await prisma.post.delete({
-      where: { id: Number(id) },
+      where: { id: numericId },
+    }).catch((error) => {
+      if (error.code === "P2025") { // Record not found
+        return NextResponse.json({ error: "Post not found" }, { status: 404 });
+      }
+      throw error;
     });
 
     return NextResponse.json(post);
