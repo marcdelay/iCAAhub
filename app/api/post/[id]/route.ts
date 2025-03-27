@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import prisma from "@/";
+import prisma from "@/lib/postgres/db";
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
-  const { id } = params;
+  const { id } = await context.params; // Await the params if it's a Promise
 
   if (!id) {
     return NextResponse.json({ error: "ID is required" }, { status: 400 });
@@ -19,9 +19,6 @@ export async function DELETE(
     return NextResponse.json(post);
   } catch (error) {
     console.error("Error deleting post:", error);
-    return NextResponse.json(
-      { error: "Failed to delete post" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to delete post" }, { status: 500 });
   }
 }
