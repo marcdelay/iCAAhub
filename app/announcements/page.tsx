@@ -34,12 +34,12 @@ async function getPost(): Promise<PostType[]> {
 }
 
 export default async function AnnouncementsPage() {
-  const posts = await getPost();
-  console.log("Fetched posts:", JSON.stringify(posts, null, 2));
+  const posts = await getPost(); // This will refetch data on refresh
   return (
     <div className="container mx-auto min-h-screen flex flex-col items-center">
-      <Link href={"/admin/make-announcement"}> <Button>Make Announcement</Button> </Link>
-     
+      <Link href={"/admin/make-announcement"}>
+        <Button>Make Announcement</Button>
+      </Link>
       <h1>Announcements</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4">
         {posts.map((post) => (
@@ -48,7 +48,7 @@ export default async function AnnouncementsPage() {
             id={post.id}
             title={post.title}
             content={post.content}
-            authorName={post.author.name} // Pass as string
+            authorName={post.author.name}
           />
         ))}
       </div>
