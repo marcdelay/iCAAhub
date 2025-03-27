@@ -40,8 +40,8 @@
     "ts-jest": "^29.2.6",
     "typescript": "^5"
   },
-  "resolutions": {
-    "glob": "^9.0.0"
-  },
+  "overrides": {
+  "glob": "9.0.0"
+},
   "type": "module"
 }
