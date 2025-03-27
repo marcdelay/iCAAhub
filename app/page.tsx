@@ -20,7 +20,7 @@ export default function Home() {
               welcome you to my Portfolio-Classroom-Project. I am excited to
               share my journey with you and showcase my skills and projects.
             </p>
-            <p className="mb-5">
+            <div className="mb-5">
               <h1 className="text-3xl font-bold">
                Team Code Mages
               </h1>
@@ -28,7 +28,7 @@ export default function Home() {
               <a href="https://www.linkedin.com/in/bhatianehaa/" target="_blank" rel="noopener noreferrer">Neha Bhatia</a>, Flynn Richardson, and myself     
               </h2>
               Code Your Dreams threw an extended Hackathon with three teams and three different platforms that will eventualy become their CYD Hub. Code Mages developed a classroom platform where a teacher can view homework submissions, grade them, and provide feedback to students. Students can view their grades and feedback. The platform also allows students to submit homework and view their grades. The platform is built using Next.js with typescript, Prisma, and PostgreSQL hosted on AWS RDS and S3 buckets for submissions.
-            </p>
+            </div>
             <p className="mb-5">
               Please feel free to explore my site and reach out to me if you
               have any questions or would like to connect. I look forward to
