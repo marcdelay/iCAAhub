@@ -1,9 +1,9 @@
+'use client' 
+import { useState, useEffect } from "react";
 import { Post } from "@/components/Post";
-import prisma from "@/lib/postgres/db";
 import Link from "next/link";
 import Button from "@/components/Button";
 
-// Define the TypeScript type for a Post
 type PostType = {
   id: number;
   title: string;
@@ -13,28 +13,30 @@ type PostType = {
   };
 };
 
-// Update the getPost function to return a typed array of posts
 async function getPost(): Promise<PostType[]> {
-  const posts = await prisma.post.findMany({
-    where: { published: true },
-    include: {
-      author: {
-        select: { name: true },
-      },
-    },
-  });
-  return posts.map((post) => ({
-    id: post.id,
-    title: post.title,
-    content: post.content ?? "",
-    author: {
-      name: post.author?.name ?? "Unknown",
-    },
-  }));
+  const response = await fetch("/api/posts");
+  if (!response.ok) {
+    throw new Error("Failed to fetch posts");
+  }
+  return response.json();
 }
 
-export default async function AnnouncementsPage() {
-  const posts = await getPost(); // This will refetch data on refresh
+export default function AnnouncementsPage() {
+  const [posts, setPosts] = useState<PostType[]>([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const initialPosts = await getPost(); // Fetch posts initially
+      setPosts(initialPosts);
+    };
+    fetchPosts();
+  }, []);
+
+  const handleDelete = (id: number) => {
+    // Update the state to remove the deleted post
+    setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+  };
+
   return (
     <div className="container mx-auto min-h-screen flex flex-col items-center">
       <Link href={"/admin/make-announcement"}>
@@ -49,6 +51,7 @@ export default async function AnnouncementsPage() {
             title={post.title}
             content={post.content}
             authorName={post.author.name}
+            onDelete={handleDelete} // Pass the delete handler
           />
         ))}
       </div>

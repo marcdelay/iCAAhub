@@ -6,9 +6,10 @@ type PostProps = {
   title: string;
   content: string;
   authorName: string;
+  onDelete: (id: number) => void; // Add onDelete prop
 };
 
-export function Post({ id, title, content, authorName }: PostProps) {
+export function Post({ id, title, content, authorName, onDelete }: PostProps) {
   return (
     <div>
       <div className="card bg-base-100 image-full p-10 w-96 shadow-sm">
@@ -16,12 +17,11 @@ export function Post({ id, title, content, authorName }: PostProps) {
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
           <div className="card-actions justify-end">
-            <DeleteAnnouncement postID={id} />
+            <DeleteAnnouncement postID={id} onDelete={onDelete} />
           </div>
           <p>{content}</p>
           <div className="card-actions justify-end">
-            <p>{authorName}</p> {/* Display authorName directly */}
-            {/* <button className="btn btn-primary">Buy Now</button> */}
+            <p>{authorName}</p>
           </div>
         </div>
       </div>

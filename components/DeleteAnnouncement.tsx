@@ -1,11 +1,12 @@
-'use client';
-import { useRouter } from "next/navigation";
-  
+'use client';  
 
-
-export default function DeleteAnnouncement({postID}: {postID: number}) {
-    const router = useRouter();
-
+export default function DeleteAnnouncement({
+  postID,
+  onDelete,
+}: {
+  postID: number;
+  onDelete: (id: number) => void;
+}) {
   const handleDelete = async () => {
     try {
       const response = await fetch(`/api/post/${postID}`, {
@@ -18,8 +19,8 @@ export default function DeleteAnnouncement({postID}: {postID: number}) {
 
       console.log("Announcement deleted successfully");
 
-      // Refresh the router after a successful delete
-      router.refresh();
+      // Update the parent state
+      onDelete(postID);
     } catch (error) {
       console.error("Error deleting announcement:", error);
     }
@@ -30,5 +31,4 @@ export default function DeleteAnnouncement({postID}: {postID: number}) {
       Delete
     </button>
   );
-  
-} 
+}
