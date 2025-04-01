@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html data-theme="cyberpunk" lang="en">
+    <html data-theme="valentine" lang="en">
       
       <body>
         <div>
