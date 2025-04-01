@@ -2,8 +2,7 @@ import React, { useState } from "react";
 
 import ClassroomNavBar from "./ClassroomNavBar";
 import AssignmentSubmitForm from "./AssignmentSubmitForm";
-// import StudentSubmissionView from './StudentSubmissionView';
-import Construction from "./Construction";
+import StudentSubmissionView from "./Construction";
 
 const StudentForm = ({
   classroomId,
@@ -34,7 +33,7 @@ const StudentForm = ({
         {selectedOption === "Submit Assignment" && (
           <AssignmentSubmitForm classroomId={classroomId} userId={userId} />
         )}
-        {selectedOption === "Your Submissions" && <Construction />}
+        {selectedOption === "Your Submissions" && <StudentSubmissionView />}
       </div>
     </div>
   );

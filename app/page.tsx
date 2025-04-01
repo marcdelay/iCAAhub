@@ -36,6 +36,7 @@ export default function Home() {
             </p>
            <Link className="btn btn-accent" href="/classroom">
               <Button>Enter Classroom</Button>
+              
             </Link>
           </div>
         </div>

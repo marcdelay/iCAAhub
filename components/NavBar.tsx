@@ -87,69 +87,70 @@ export default function Navbar() {
         </div>
         </div>
         <div className="navbar-center">
-          <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-            <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-              <span className="countdown font-mono text-5xl">
-                <span
-                  style={{ "--value": time.years } as React.CSSProperties}
-                  aria-live="polite"
-                  aria-label="years"
-                >
-                  {time.years}
-                </span>
-              </span>
-              years
-            </div>
-            <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-              <span className="countdown font-mono text-5xl">
-                <span
-                  style={{ "--value": time.days } as React.CSSProperties}
-                  aria-live="polite"
-                  aria-label="days"
-                >
-                  {time.days}
-                </span>
-              </span>
-              days
-            </div>
-            <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-              <span className="countdown font-mono text-5xl">
-                <span
-                  style={{ "--value": time.hours } as React.CSSProperties}
-                  aria-live="polite"
-                  aria-label="hours"
-                >
-                  {time.hours}
-                </span>
-              </span>
-              hours
-            </div>
-            <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-              <span className="countdown font-mono text-5xl">
-                <span
-                  style={{ "--value": time.minutes } as React.CSSProperties}
-                  aria-live="polite"
-                  aria-label="minutes"
-                >
-                  {time.minutes}
-                </span>
-              </span>
-              min
-            </div>
-            <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-              <span className="countdown font-mono text-5xl">
-                <span
-                  style={{ "--value": time.seconds } as React.CSSProperties}
-                  aria-live="polite"
-                  aria-label="seconds"
-                >
-                  {time.seconds}
-                </span>
-              </span>
-              sec
-            </div>
-          </div>
-        </div>
+  <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
+    {/* Hide countdown on small screens */}
+    <div className="hidden sm:flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+      <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
+        <span
+          style={{ "--value": time.years } as React.CSSProperties}
+          aria-live="polite"
+          aria-label="years"
+        >
+          {time.years}
+        </span>
+      </span>
+      years
+    </div>
+    <div className="hidden sm:flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+      <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
+        <span
+          style={{ "--value": time.days } as React.CSSProperties}
+          aria-live="polite"
+          aria-label="days"
+        >
+          {time.days}
+        </span>
+      </span>
+      days
+    </div>
+    <div className="hidden sm:flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+      <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
+        <span
+          style={{ "--value": time.hours } as React.CSSProperties}
+          aria-live="polite"
+          aria-label="hours"
+        >
+          {time.hours}
+        </span>
+      </span>
+      hours
+    </div>
+    <div className="hidden sm:flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+      <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
+        <span
+          style={{ "--value": time.minutes } as React.CSSProperties}
+          aria-live="polite"
+          aria-label="minutes"
+        >
+          {time.minutes}
+        </span>
+      </span>
+      min
+    </div>
+    <div className="hidden sm:flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+      <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
+        <span
+          style={{ "--value": time.seconds } as React.CSSProperties}
+          aria-live="polite"
+          aria-label="seconds"
+        >
+          {time.seconds}
+        </span>
+      </span>
+      sec
+    </div>
+  </div>
+</div>
         <div className="navbar-end">{/* Add user-related buttons here */}</div>
       </div>
     </div>
