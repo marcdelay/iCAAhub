@@ -4,6 +4,8 @@
 }
 
 
+
+
 @plugin "daisyui/theme" {
   name: "abyss";
   default: true;
@@ -15,8 +17,8 @@
   --color-base-content: #b9123f;
   --color-primary: #b9123f;
   --color-primary-content: rgb(40, 40, 39);
-  --color-secondary: rgb(248, 48, 48);
-  --color-secondary-content: rgb(56, 56, 56);
+  --color-secondary: #fdfdfd;
+  --color-secondary-content: rgb(40, 40, 39);
   --color-accent: rgb(56, 56, 56);
   --color-accent-content: #fdfdfd;
   --color-neutral: rgb(56, 56, 56);
@@ -25,10 +27,10 @@
   --color-info-content: #fdfdfd;
   --color-success: rgb(40, 40, 39);
   --color-success-content: rgb(248, 48, 48);
-  --color-error: rgb(185, 18, 63);
+  --color-warning: #b9123f;
+  --color-warning-content: oklch(12% 0.042 264.695);
+  --color-error: rgb(248, 48, 48);
   --color-error-content: rgb(40, 40, 39);
-  --color-warning: rgb(248, 48, 48, 50%);
-  --color-warning-content: #fdfdfd;
   --radius-selector: 0.25rem;
   --radius-field: 1rem;
   --radius-box: 2rem;
@@ -39,6 +41,12 @@
   --noise: 0;
 }
 
+p {
+  font-family: 'League Spartan', 'Blinker', 'Montserrat', sans-serif;
+  font-size: 24px;
+  letter-spacing: 1.25px;
+  line-height: 1.55;
+}
 
 .card-border {
   border: var(--border) solid var(--color-success);
