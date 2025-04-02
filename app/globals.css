@@ -3,3 +3,49 @@
   themes: all;
 }
 
+
+@plugin "daisyui/theme" {
+  name: "abyss";
+  default: true;
+  prefersdark: true;
+  color-scheme: "light";
+  --color-base-100: #fdfdfd;
+  --color-base-200: rgb(56, 56, 56);
+  --color-base-300: oklch(92% 0 0);
+  --color-base-content: #b9123f;
+  --color-primary: #b9123f;
+  --color-primary-content: rgb(40, 40, 39);
+  --color-secondary: rgb(248, 48, 48);
+  --color-secondary-content: rgb(56, 56, 56);
+  --color-accent: rgb(56, 56, 56);
+  --color-accent-content: #fdfdfd;
+  --color-neutral: rgb(56, 56, 56);
+  --color-neutral-content: rgb(248, 48, 48);
+  --color-info: rgb(40, 40, 39);
+  --color-info-content: #fdfdfd;
+  --color-success: rgb(40, 40, 39);
+  --color-success-content: rgb(248, 48, 48);
+  --color-error: rgb(185, 18, 63);
+  --color-error-content: rgb(40, 40, 39);
+  --color-warning: rgb(248, 48, 48, 50%);
+  --color-warning-content: #fdfdfd;
+  --radius-selector: 0.25rem;
+  --radius-field: 1rem;
+  --radius-box: 2rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.21875rem;
+  --border: 2px;
+  --depth: 0;
+  --noise: 0;
+}
+
+
+.card-border {
+  border: var(--border) solid var(--color-success);
+  border-radius: var(--radius-box);
+}
+
+.card-dash {
+  border: var(--border) dashed var(--color-primary);
+  border-radius: var(--radius-box);
+}

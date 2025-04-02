@@ -48,110 +48,109 @@ export default function Navbar() {
 
   return (
     <div className="flex flex-wrap w-full">
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-info">
         <div className="navbar-start">
-        <div className="dropdown">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle"
-            onClick={() => {
-            toggleDropdown();
-            console.log("Button clicked"); // Debugging
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <div className="dropdown">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle"
+              onClick={() => {
+                toggleDropdown();
+                console.log("Button clicked"); // Debugging
+              }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h7"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h7"
+                />
+              </svg>
+            </div>
+            <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              {Object.entries(NAV_TABS).map(([title, url], idx) => (
+                <li key={idx} onClick={closeDropdown}>
+                  <Link href={url}>{title}</Link>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-          >
-            {Object.entries(NAV_TABS).map(([title, url], idx) => (
-              <li key={idx} onClick={closeDropdown}>
-                <Link href={url}>{title}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
         </div>
         <div className="navbar-center">
-  <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-    {/* Hide countdown on small screens */}
-    <div className="hidden sm:flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-      <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
-        <span
-          style={{ "--value": time.years } as React.CSSProperties}
-          aria-live="polite"
-          aria-label="years"
-        >
-          {time.years}
-        </span>
-      </span>
-      years
-    </div>
-    <div className="hidden sm:flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-      <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
-        <span
-          style={{ "--value": time.days } as React.CSSProperties}
-          aria-live="polite"
-          aria-label="days"
-        >
-          {time.days}
-        </span>
-      </span>
-      days
-    </div>
-    <div className="hidden sm:flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-      <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
-        <span
-          style={{ "--value": time.hours } as React.CSSProperties}
-          aria-live="polite"
-          aria-label="hours"
-        >
-          {time.hours}
-        </span>
-      </span>
-      hours
-    </div>
-    <div className="hidden sm:flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-      <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
-        <span
-          style={{ "--value": time.minutes } as React.CSSProperties}
-          aria-live="polite"
-          aria-label="minutes"
-        >
-          {time.minutes}
-        </span>
-      </span>
-      min
-    </div>
-    <div className="hidden sm:flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-      <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
-        <span
-          style={{ "--value": time.seconds } as React.CSSProperties}
-          aria-live="polite"
-          aria-label="seconds"
-        >
-          {time.seconds}
-        </span>
-      </span>
-      sec
-    </div>
-  </div>
-</div>
-        <div className="navbar-end">{/* Add user-related buttons here */}</div>
+          <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
+            {/* Hide countdown on small screens */}
+            <div className="hidden sm:flex flex-col p-2 bg-neutral text-secondary rounded-box ">
+              <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
+                <span
+                  style={{ "--value": time.years } as React.CSSProperties}
+                  aria-live="polite"
+                  aria-label="years"
+                >
+                  {time.years}
+                </span>
+              </span>
+              years
+            </div>
+            <div className="hidden sm:flex flex-col p-2 bg-neutral text-secondary rounded-box ">
+              <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
+                <span
+                  style={{ "--value": time.days } as React.CSSProperties}
+                  aria-live="polite"
+                  aria-label="days"
+                >
+                  {time.days}
+                </span>
+              </span>
+              days
+            </div>
+            <div className="hidden sm:flex flex-col p-2 bg-neutral text-secondary rounded-box ">
+              <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
+                <span
+                  style={{ "--value": time.hours } as React.CSSProperties}
+                  aria-live="polite"
+                  aria-label="hours"
+                >
+                  {time.hours}
+                </span>
+              </span>
+              hours
+            </div>
+            <div className="hidden sm:flex flex-col p-2 bg-neutral text-secondary rounded-box ">
+              <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
+                <span
+                  style={{ "--value": time.minutes } as React.CSSProperties}
+                  aria-live="polite"
+                  aria-label="minutes"
+                >
+                  {time.minutes}
+                </span>
+              </span>
+              min
+            </div>
+            <div className="hidden sm:flex flex-col p-2 bg-neutral text-secondary rounded-box ">
+              <span className="countdown font-mono text-3xl md:text-4xl lg:text-5xl">
+                <span
+                  style={{ "--value": time.seconds } as React.CSSProperties}
+                  aria-live="polite"
+                  aria-label="seconds"
+                >
+                  {time.seconds}
+                </span>
+              </span>
+              sec
+            </div>
+          </div>
+        </div>
+        <div className="navbar-end">
+        </div>
       </div>
     </div>
   );
