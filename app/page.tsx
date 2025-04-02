@@ -5,9 +5,10 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="w-full mx-auto min-h-screen bg-base-200">
-      <div className="w-full max-w-[1935px] mx-auto min-h-screen bg-base-200">
-        <div className="flex flex-col sm:flex-row justify-around bg-base-200">
-          <div className="grid grid-rows-1 max-w-[875px] justify-around gap-4 w-full p-4">
+      <div className="flex w-full justify-center max-w-[1935px] mx-auto min-h-screen bg-base-200">
+        <div className="md:flex md:flex-row bg-base-200">
+
+          <div className="max-w-[875px] gap-4 w-full p-4">
 
 
 
