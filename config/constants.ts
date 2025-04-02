@@ -1,5 +1,5 @@
 export const NAV_TABS = {
-    Home: '/',
+    Home: 'https://www.jvcswebdesigns.xyz/',
     Classroom: '/classroom',
     Announcements: '/announcements'
   };

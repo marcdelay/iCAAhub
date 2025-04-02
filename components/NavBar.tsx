@@ -50,11 +50,11 @@ export default function Navbar() {
     <div className="flex flex-wrap w-full">
       <div className="navbar bg-info">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown dropdown-start">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle"
+              className="btn btn-ghost rounded-field"
               onClick={() => {
                 toggleDropdown();
                 console.log("Button clicked"); // Debugging
@@ -75,7 +75,7 @@ export default function Navbar() {
                 />
               </svg>
             </div>
-            <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            <ul className="menu sm:menu-sm md:menu-md lg:menu-lg dropdown-content bg-base-100 z-[1] mt-3 w-52 p-2 shadow">
               {Object.entries(NAV_TABS).map(([title, url], idx) => (
                 <li key={idx} onClick={closeDropdown}>
                   <Link href={url}>{title}</Link>
@@ -149,8 +149,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-        <div className="navbar-end">
-        </div>
+        <div className="navbar-end"></div>
       </div>
     </div>
   );
