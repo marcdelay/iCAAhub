@@ -78,7 +78,7 @@ export default function Home() {
             
           </div>
 
-          <div className="card border col-span-3 bg-info image-full xl:col-span-1 shadow-md m-4 p-4">
+          <div className="card border col-span-3 bg-info image-full xl:col-span-1 shadow-md">
           <figure>
   <Image
     src="/CodeMages.jpg"
@@ -88,7 +88,7 @@ export default function Home() {
   />
 </figure>
 <div className="card-body m-2 p-2">
-            <h1 className="xl:text-3xl card-title font-bold m-2">Team Code Mages</h1>
+            <h1 className="xl:text-3xl card-title font-bold">Team Code Mages</h1>
             <p className="xl:text-2xl card-body">
               This project was created by a team of talented individuals who are
               passionate about coding and technology. <br />
