@@ -10,118 +10,104 @@ export default function Home() {
       <div className="flex flex-col flex-wrap items-center justify-around">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full py-4">
           <div className="sr-only lg:not-sr-only flex justify-center lg:col-span-3">
-          <figure
-            className="max-h-[500px] md:text-6xl diff py-3 aspect-16/9"
-            tabIndex={0}
-          >
-            <div className="diff-item-1" role="img">
-              <div className="bg-info text-info-content grid place-content-center font-black">
-                <div>
-                  <span className="text-success-content">*</span>
+            <figure
+              className="max-h-[500px] md:text-6xl diff py-3 aspect-16/9"
+              tabIndex={0}
+            >
+              <div className="diff-item-1" role="img">
+                <div className="bg-info text-info-content grid place-content-center font-black">
+                  <div>
+                    <span className="text-success-content">*</span>
 
-                  <span> | iCAA</span>
+                    <span> | iCAA</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="diff-item-2" role="img" tabIndex={0}>
-              <div className="bg-secondary grid place-content-center font-black text-secondary-content">
-                <div>
-                  <span className="text-success-content">*</span> | iCAA
+              <div className="diff-item-2" role="img" tabIndex={0}>
+                <div className="bg-secondary grid place-content-center font-black text-secondary-content">
+                  <div>
+                    <span className="text-success-content">*</span> | iCAA
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="diff-resizer"></div>
-          </figure>
+              <div className="diff-resizer"></div>
+            </figure>
           </div>
 
-
-          
-            <div className="col-span-3 xl:col-span-1 card border-4 m-4">
-              <div className="card-title text-3xl pl-4 xl:text-5xl join">
-                <p className="join-item">
-                  *  
-              </p>
-                <p className="join-item text-secondary">
-                   <strong> | iCAA</strong> 
-                </p>
-              </div>
-
-              <p className="card-body text-2xl xl:text-3xl text-center lg:text-start">
-                Where the i.c.stars Alumni and Residents come together to learn,
-                grow, and share!
+          <div className="col-span-3 xl:col-span-1 card border-4 m-4">
+            <div className="card-title text-3xl pl-4 xl:text-5xl join">
+              <p className="join-item">*</p>
+              <p className="join-item text-secondary">
+                <strong> | iCAA</strong>
               </p>
             </div>
 
+            <p className="card-body text-2xl xl:text-3xl text-center lg:text-start">
+              Where the i.c.stars Alumni and Residents come together to learn,
+              grow, and share!
+            </p>
+          </div>
 
-            <div className="card card-border col-span-3 xl:col-span-2 bg-warning m-4 p-4">
-              <div className="flex flex-col items-center">
-                <h1 className="text-3xl text-warning-content font-bold">
-                  Whats new?
-                </h1>
-                <Image
-                  src="/newspaper.svg"
-                  alt="Newspaper"
-                  width={100}
-                  height={100}
-                />
-              </div>
-              <div className="">
-                <p className="text-info-content text-center p-3 md:text-3xl">
-                  Stay in-touch with the iCAA events and find opportunities to
-                  take advantage of, or help-out with.
-                 
-                  </p><a
-                    href="#"
-                    target="_blank"
-                    className="btn btn-secondary mt-3 flex flex-center md:btn-lg btn-outline"
-                  >
-                    Newsletter
-                  </a>
-               
-              </div>
-            </div>
-
-
-            <div className="card card-dash bg-base-200 m-4 shadow-md">
-              <h1 className="text-2xl font-bold card-title m-2">
-                Card with Dashed Border
+          <div className="card card-border col-span-3 xl:col-span-2 bg-warning m-4 p-4">
+            <div className="flex flex-col items-center">
+              <h1 className="xl:text-3xl text-warning-content font-bold">
+                Whats new?
               </h1>
-              <p>This card uses the custom card-dash class.</p>
+              <Image
+                src="/newspaper.svg"
+                alt="Newspaper"
+                width={100}
+                height={100}
+              />
             </div>
+            <div className="">
+              <p className="text-info-content text-center p-3 md:text-3xl">
+                Stay in-touch with the iCAA events and find opportunities to
+                take advantage of, or help-out with.
+              </p>
+              <a
+                href="#"
+                target="_blank"
+                className="btn btn-secondary mt-3 flex flex-center md:btn-lg btn-outline"
+              >
+                Newsletter
+              </a>
+            </div>
+          </div>
 
-            <div className="card card-border bg-base-100 shadow-md m-4 p-4">
-                    <h1 className="text-2xl card-title font-bold mb-2">
-                      Welcome
-                    </h1>
-                    <p className="card-body">
-                      I, Jonathan Ramirez, a proud Cycle 53 Graduate of
-                      i.c.stars, welcome you to my Portfolio-Classroom-Project.
-                      I am excited to share my journey with you and showcase my
-                      skills and projects.
-                    </p>
-                  </div>
-                  <div className="card bg-base-100 shadow-md m-4 p-4">
-                    <h1 className="text-2xl card-title font-bold mb-2">
-                      Welcome
-                    </h1>
-                    <p>
-                      I, Jonathan Ramirez, a proud Cycle 53 Graduate of
-                      i.c.stars, welcome you to my Portfolio-Classroom-Project.
-                      I am excited to share my journey with you and showcase my
-                      skills and projects.
-                    </p>
-                  </div>
-                  <div className="card card-border bg-base-100 shadow-md m-4 p-4">
-                    <h1 className="text-2xl font-bold mb-2">Welcome</h1>
-                    <p>
-                      I, Jonathan Ramirez, a proud Cycle 53 Graduate of
-                      i.c.stars, welcome you to my Portfolio-Classroom-Project.
-                      I am excited to share my journey with you and showcase my
-                      skills and projects.
-                    </p>
-                  </div>
+          <div className="card col-span-3 xl:col-span-1 card-dash bg-base-200 m-4 shadow-md">
+            <h1 className="text-2xl font-bold card-title m-2">
+              Card with Dashed Border
+            </h1>
+            <p>This card uses the custom card-dash class.</p>
+          </div>
 
+          <div className="card card-border col-span-3 xl:col-span-1 bg-base-100 shadow-md m-4 p-4">
+            <h1 className="text-2xl card-title font-bold mb-2">Welcome 1</h1>
+            <p className="card-body">
+              I, Jonathan Ramirez, a proud Cycle 53 Graduate of i.c.stars,
+              welcome you to my Portfolio-Classroom-Project. I am excited to
+              share my journey with you and showcase my skills and projects.
+            </p>
+          </div>
 
+          <div className="card bg-base-100 shadow-md col-span-3 xl:col-span-1 m-4 p-4">
+            <h1 className="text-2xl card-title font-bold mb-2">Welcome 2</h1>
+            <p className="card-body">
+              I, Jonathan Ramirez, a proud Cycle 53 Graduate of i.c.stars,
+              welcome you to my Portfolio-Classroom-Project. I am excited to
+              share my journey with you and showcase my skills and projects.
+            </p>
+          </div>
+
+          <div className="card card-border bg-base-100 shadow-md col-span-3 xl:col-span-1 m-4 p-4">
+            <h1 className="text-2xl font-bold mb-2">Welcome 3</h1>
+            <p className="card-body">
+              I, Jonathan Ramirez, a proud Cycle 53 Graduate of i.c.stars,
+              welcome you to my Portfolio-Classroom-Project. I am excited to
+              share my journey with you and showcase my skills and projects.
+            </p>
+          </div>
         </div>
       </div>
     </main>
