@@ -36,7 +36,7 @@
   --radius-box: 2rem;
   --size-selector: 0.25rem;
   --size-field: 0.21875rem;
-  --border: 2px;
+  --border: 4px;
   --depth: 0;
   --noise: 0;
 }
@@ -48,7 +48,7 @@ p {
 }
 
 .card-border {
-  border: var(--border) solid var(--color-success);
+  border: var(--border) solid var(--color-info);
   border-radius: var(--radius-box);
 }
 
