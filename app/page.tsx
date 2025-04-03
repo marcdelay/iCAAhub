@@ -194,7 +194,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="card card-border text-info-content bg-info shadow-md col-span-3 xl:col-span-1 m-4 p-4">
+          <div className="card card-border text-info-content bg-info shadow-md col-span-3 xl:col-span-3 m-4 p-4">
             <h1 className="font-bold mb-2">Welcome 3</h1>
             <p className="card-body">
               I, Jonathan Ramirez, a proud Cycle 53 Graduate of i.c.stars,
