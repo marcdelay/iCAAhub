@@ -1,11 +1,9 @@
-
-
 Jonathan Ramirez
 Cycle 53
 I will add more later
 
 
-# CYD Website
+# iCAA Central Hub Website
 
 **Table of Contents**
 
@@ -13,7 +11,7 @@ I will add more later
 - [Contributing](#️-contributing)
 - [Development Guidelines](#️-development-guidelines)
 - [Quick Tips](#️-quick-tips)
-- [Additional Info for HYD Participants](#️-hack-your-dreams-hyd-2025-participants)
+- [Additional Info for iCAA WebTeam Participants](#️-iCAA-collaborators-2025)
 
 ## ⭐️ Getting Started
 
@@ -28,14 +26,14 @@ I will add more later
 1. Clone the repository:
    ```bash
    git clone <SSH_URL>
-   cd cyd-website
+   cd iCAAhub
    ```
-2. Download the `.env` file from [Google Drive](https://drive.google.com/drive/folders/1z2poGZZ4FMGLaFsqRV_0cHIHu6Z9lytm?usp=sharing) and place it in the `cyd-website` folder.
+2. Download the `.env` file from [Google Drive](https://drive.google.com/drive/folders/15_GC93egcXhEHhzOtKsrMaWhnnrmCjPO?usp=sharing) and place it in the `iCAAhub` folder.
    - If access is restricted, provide your email for access.
    - **Important**: Do not share these credentials or commit them to GitHub.
 3. Open the project in VSCode:
-   - Open the `cyd-website` folder in Visual Studio Code.
-   - Ensure the terminal in VSCode is set to the root `cyd-website` folder.
+   - Open the `iCAAhub` folder in Visual Studio Code.
+   - Ensure the terminal in VSCode is set to the root `iCAAhub` folder.
 4. Install dependencies and start the development server:
    ```bash
    npm install
@@ -70,7 +68,7 @@ I will add more later
    ```
    > ‼️ _Always specify the remote and branch to avoid pushing to the wrong branch!_
 5. **Open a Pull Request (PR)**:
-   - Go to the [Pull Request page](https://github.com/CodeYourDreams/cyd-website/compare) and create a new PR to merge changes from your feature branch (`main-<project_name>/<feature_name>`) into the main branch for your project (`main-<project_name>`).
+   - Go to the [Pull Request page](https://github.com/JValentineC/iCAAhub/compare) and create a new PR to merge changes from your feature branch (`main-<project_name>/<feature_name>`) into the main branch for your project (`main-<project_name>`).
    - Provide a detailed description and request a review from a team member.
    - Once they approve your PR, you can merge it into the main branch for your project (`main-<project_name>`).
 
@@ -147,11 +145,11 @@ I will add more later
 
 ---
 
-## ⭐️ iCAA Collaborators 2025 Participants
+## ⭐️ iCAA Collaborators 2025
 
 Use Notion for collaboration and documentation:
 
-- [HYD 2025 Workspace](https://www.notion.so/invite/3922e9f78eb8a1256d8ec7597d2d5df1a0bd5f82): Includes participants, team wikis, Branding Guidelines, etc.
+- [iCAA Workspace](https://www.notion.so/invite/3922e9f78eb8a1256d8ec7597d2d5df1a0bd5f82): Includes participants, team wikis, Branding Guidelines, etc.
 - [Onboarding Checklist](): Start here for setup and orientation.
 - _Note: You need to click the "Edit" button at the top-right corner of the Notion page to edit docs. See [How to Edit Notion](./readme-notion-edit.png)._
 
