@@ -15,19 +15,33 @@ export default function Home() {
               tabIndex={0}
             >
               <div className="diff-item-1" role="img">
-                <div className="bg-info text-info-content grid place-content-center font-black">
-                  <div>
-                    <span className="text-success-content">*</span>
-
-                    <span> | iCAA</span>
-                  </div>
+                <div className="bg-info image-full text-info-content grid place-content-center pb-5 font-black">
+                <figure>
+  <Image
+    src="/WhiteiCAA.svg"
+    alt="Team Code Mages"
+    width={500} // Set an appropriate width
+    height={300} // Set an appropriate height
+    layout="responsive" // Dynamically adjusts width and height
+    objectFit="contain" // Ensures the image scales proportionally
+  
+  />
+</figure>
                 </div>
               </div>
               <div className="diff-item-2" role="img" tabIndex={0}>
-                <div className="bg-secondary grid place-content-center font-black text-secondary-content">
-                  <div>
-                    <span className="text-success-content">*</span> | iCAA
-                  </div>
+                <div className="bg-secondary grid place-content-center image-full pb-5 font-black text-secondary-content">
+                <figure>
+  <Image
+    src="/BlackiCAA.svg"
+    alt="Team Code Mages"
+    width={500} // Set an appropriate width
+    height={300} // Set an appropriate height
+    layout="responsive" // Dynamically adjusts width and height
+    objectFit="contain" // Ensures the image scales proportionally
+  
+  />
+</figure>
                 </div>
               </div>
               <div className="diff-resizer"></div>
