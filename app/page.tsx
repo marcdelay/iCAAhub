@@ -34,7 +34,7 @@ export default function Home() {
             </figure>
           </div>
 
-          <div className="col-span-3 xl:col-span-1 card border-4 m-4">
+          <div className="col-span-3 xl:col-span-1 card bg-info border-4 m-4">
             <div className="card-title text-3xl pl-4 xl:text-5xl join">
               <p className="join-item">*</p>
               <p className="join-item text-secondary">
@@ -53,12 +53,12 @@ export default function Home() {
 
            
               
-              <h1 className="md:text-3xl card-title justify-center text-warning-content font-bold">
+              <h1 className="xl:text-3xl card-title justify-center text-warning-content font-bold">
                 Whats new?
               </h1>
 
              
-                <p className="text-info-content card-body text-center p-3 md:text-2xl">
+                <p className="text-info-content card-body text-center p-3 xl:text-2xl">
                   Stay in-touch with the iCAA events and find opportunities to
                   take advantage of, or help-out with.
                 </p>
@@ -78,8 +78,17 @@ export default function Home() {
             
           </div>
 
-          <div className="card border col-span-3 xl:col-span-1 shadow-md m-4 p-4">
-            <h1 className="xl:text-3xl font-bold m-2">Team Code Mages</h1>
+          <div className="card border col-span-3 bg-info image-full xl:col-span-1 shadow-md m-4 p-4">
+          <figure>
+  <Image
+    src="/CodeMages.jpg"
+    alt="Team Code Mages"
+    width={500} // Set an appropriate width
+    height={300} // Set an appropriate height
+  />
+</figure>
+<div className="card-body m-2 p-2">
+            <h1 className="xl:text-3xl card-title font-bold m-2">Team Code Mages</h1>
             <p className="xl:text-2xl card-body">
               This project was created by a team of talented individuals who are
               passionate about coding and technology. <br />
@@ -97,14 +106,14 @@ export default function Home() {
                 </a>
               </span>
               Developer: Flynn Richardson.
-            </p>
+            </p></div>
           </div>
 
-          <div className="card col-span-3 xl:col-span-1 card-dash bg-base-200 m-4 p-4 shadow-md">
-            <h1 className="text-2xl font-bold card-title m-2">
+          <div className="card col-span-3 xl:col-span-1 card-dash bg-info m-4 p-4 shadow-md">
+            <h1 className="text-2xl xl:text-3xl font-bold card-title m-2 p-2">
               Card with Dashed Border
             </h1>
-            <p className="card-body">
+            <p className="card-body xl:text-2xl m-2 p-2">
               This card uses the custom card-dash class.
             </p>
           </div>
