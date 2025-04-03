@@ -11,7 +11,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full py-4">
           <div className="sr-only lg:not-sr-only flex justify-center lg:col-span-3">
             <figure
-              className="max-h-[500px] md:text-6xl diff py-3 aspect-16/9"
+              className="max-h-[500px] md:text-9xl diff py-3 aspect-16/9"
               tabIndex={0}
             >
               <div className="diff-item-1" role="img">
@@ -35,14 +35,14 @@ export default function Home() {
           </div>
 
           <div className="col-span-3 xl:col-span-1 card bg-info border-4 m-4">
-            <div className="card-title text-3xl pl-4 xl:text-5xl join">
+            <div className="card-title pl-4 join">
               <p className="join-item">*</p>
               <p className="join-item text-secondary">
                 <strong> | iCAA</strong>
               </p>
             </div>
 
-            <p className="card-body text-2xl xl:text-3xl text-center lg:text-start">
+            <p className="card-body text-center lg:text-start">
               Where the i.c.stars Alumni and Residents come together to learn,
               grow, and share!
             </p>
@@ -53,12 +53,12 @@ export default function Home() {
 
            
               
-              <h1 className="xl:text-3xl card-title justify-center text-warning-content font-bold">
+              <h1 className="card-title justify-center text-warning-content font-bold">
                 Whats new?
               </h1>
 
              
-                <p className="text-info-content card-body text-center p-3 xl:text-2xl">
+                <p className="text-info-content card-body text-center p-3">
                   Stay in-touch with the iCAA events and find opportunities to
                   take advantage of, or help-out with.
                 </p>
@@ -88,8 +88,8 @@ export default function Home() {
   />
 </figure>
 <div className="card-body m-2 p-2">
-            <h1 className="xl:text-3xl card-title mx-3 font-bold">Team Code Mages</h1>
-            <p className="xl:text-2xl text-info-content card-body">
+            <h1 className="card-title mx-3 font-bold">Team Code Mages</h1>
+            <p className="text-info-content card-body">
               This project was created by a team of talented individuals who are
               passionate about coding and technology. <br />
               The team consists of Jonathan Ramirez, who is the lead developer,
@@ -110,16 +110,16 @@ export default function Home() {
           </div>
 
           <div className="card col-span-3 xl:col-span-1 card-dash bg-info m-4 p-4 shadow-md">
-            <h1 className="text-2xl xl:text-3xl font-bold card-title m-2 p-2">
+            <h1 className="font-bold card-title m-2 p-2">
               Card with Dashed Border
             </h1>
-            <p className="card-body xl:text-2xl m-2 p-2">
+            <p className="card-body m-2 p-2">
               This card uses the custom card-dash class.
             </p>
           </div>
 
-          <div className="card card-border col-span-3 xl:col-span-1 bg-base-100 shadow-md m-4 p-4">
-            <h1 className="text-2xl card-title font-bold mb-2">Welcome 1</h1>
+          <div className="card border col-span-3 xl:col-span-1 bg-base-100 shadow-md m-4 p-4">
+            <h1 className="card-title font-bold mb-2">Welcome 1</h1>
             <p className="card-body">
               I, Jonathan Ramirez, a proud Cycle 53 Graduate of i.c.stars,
               welcome you to my Portfolio-Classroom-Project. I am excited to
@@ -128,7 +128,7 @@ export default function Home() {
           </div>
 
           <div className="card bg-base-100 shadow-md col-span-3 xl:col-span-1 m-4 p-4">
-            <h1 className="text-2xl card-title font-bold mb-2">Welcome 2</h1>
+            <h1 className="card-title font-bold mb-2">Welcome 2</h1>
             <p className="card-body">
               I, Jonathan Ramirez, a proud Cycle 53 Graduate of i.c.stars,
               welcome you to my Portfolio-Classroom-Project. I am excited to
@@ -137,7 +137,7 @@ export default function Home() {
           </div>
 
           <div className="card card-border text-info-content bg-info shadow-md col-span-3 xl:col-span-1 m-4 p-4">
-            <h1 className="text-2xl font-bold mb-2">Welcome 3</h1>
+            <h1 className="font-bold mb-2">Welcome 3</h1>
             <p className="card-body">
               I, Jonathan Ramirez, a proud Cycle 53 Graduate of i.c.stars,
               welcome you to my Portfolio-Classroom-Project. I am excited to
