@@ -78,7 +78,7 @@ export default function Home() {
             
           </div>
 
-          <div className="card border col-span-3 bg-info image-full xl:col-span-1 m-4 shadow-md">
+          <div className="card border text-info-content col-span-3 bg-info image-full xl:col-span-1 mx-4 shadow-md">
           <figure>
   <Image
     src="/CodeMages.jpg"
@@ -88,8 +88,8 @@ export default function Home() {
   />
 </figure>
 <div className="card-body m-2 p-2">
-            <h1 className="xl:text-3xl card-title font-bold">Team Code Mages</h1>
-            <p className="xl:text-2xl card-body">
+            <h1 className="xl:text-3xl card-title mx-3 font-bold">Team Code Mages</h1>
+            <p className="xl:text-2xl text-info-content card-body">
               This project was created by a team of talented individuals who are
               passionate about coding and technology. <br />
               The team consists of Jonathan Ramirez, who is the lead developer,
@@ -102,7 +102,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="text-success-content underline"
                 >
-                  Neha Bhatia
+                   Neha Bhatia
                 </a>
               </span>
               Developer: Flynn Richardson.
