@@ -78,7 +78,7 @@ export default function Home() {
             
           </div>
 
-          <div className="card border col-span-3 bg-info image-full xl:col-span-1 shadow-md">
+          <div className="card border col-span-3 bg-info image-full xl:col-span-1 m-4 shadow-md">
           <figure>
   <Image
     src="/CodeMages.jpg"
