@@ -49,37 +49,64 @@ export default function Home() {
           </div>
 
           <div className="card card-border col-span-3 xl:col-span-2 bg-warning m-4 p-4">
-            <div className="flex flex-col items-center">
-              <h1 className="xl:text-3xl text-warning-content font-bold">
+
+
+           
+              
+              <h1 className="md:text-3xl card-title justify-center text-warning-content font-bold">
                 Whats new?
               </h1>
-              <Image
-                src="/newspaper.svg"
-                alt="Newspaper"
-                width={100}
-                height={100}
-              />
-            </div>
-            <div className="">
-              <p className="text-info-content text-center p-3 md:text-3xl">
-                Stay in-touch with the iCAA events and find opportunities to
-                take advantage of, or help-out with.
-              </p>
-              <a
-                href="#"
-                target="_blank"
-                className="btn btn-secondary mt-3 flex flex-center md:btn-lg btn-outline"
-              >
-                Newsletter
-              </a>
-            </div>
+
+             
+                <p className="text-info-content card-body text-center p-3 md:text-2xl">
+                  Stay in-touch with the iCAA events and find opportunities to
+                  take advantage of, or help-out with.
+                </p>
+
+                <p className="text-center">
+      
+                  <a
+                    href="#"
+                    target="_blank"
+                    className="btn btn-secondary col-span-1 m-3 md:btn-lg btn-outline"
+                  >
+                    Newsletter
+                  </a>
+
+
+                </p>
+            
           </div>
 
-          <div className="card col-span-3 xl:col-span-1 card-dash bg-base-200 m-4 shadow-md">
+          <div className="card border col-span-3 xl:col-span-1 shadow-md m-4 p-4">
+            <h1 className="xl:text-3xl font-bold m-2">Team Code Mages</h1>
+            <p className="xl:text-2xl card-body">
+              This project was created by a team of talented individuals who are
+              passionate about coding and technology. <br />
+              The team consists of Jonathan Ramirez, who is the lead developer,
+              and other members including <br />
+              <span>
+                Lead Developer:
+                <a
+                  href="https://www.linkedin.com/in/bhatianehaa/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-success-content underline"
+                >
+                  Neha Bhatia
+                </a>
+              </span>
+              Developer: Flynn Richardson.
+            </p>
+          </div>
+
+          <div className="card col-span-3 xl:col-span-1 card-dash bg-base-200 m-4 p-4 shadow-md">
             <h1 className="text-2xl font-bold card-title m-2">
               Card with Dashed Border
             </h1>
-            <p>This card uses the custom card-dash class.</p>
+            <p className="card-body">
+              This card uses the custom card-dash class.
+            </p>
           </div>
 
           <div className="card card-border col-span-3 xl:col-span-1 bg-base-100 shadow-md m-4 p-4">
@@ -100,7 +127,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="card card-border bg-base-100 shadow-md col-span-3 xl:col-span-1 m-4 p-4">
+          <div className="card card-border text-info-content bg-info shadow-md col-span-3 xl:col-span-1 m-4 p-4">
             <h1 className="text-2xl font-bold mb-2">Welcome 3</h1>
             <p className="card-body">
               I, Jonathan Ramirez, a proud Cycle 53 Graduate of i.c.stars,
@@ -112,179 +139,4 @@ export default function Home() {
       </div>
     </main>
   );
-}
-
-{
-  /*
-  <div className="flex w-full justify-center lg:max-w-[1935px] min-h-screen bg-base-200">
-        <div className="md:flex md:flex-row bg-base-200">
-
-          <div className="max-w-[875px] gap-4 w-full p-4">
-
-
-
-            
-
-
-
-
-            <div className="card card-side max-h-125 card-border bg-base-100 shadow-md m-4 p-4">
-              {/* 
-              
-              As a side to this card, I want to add an image or icon of an * i.c.stars logo or something similar.
-              
-              <figure className="flex justify-center items-center">
-                <div className="avatar-container flex justify-center items-center">
-                  <div className="avatar w-3/4 max-w-[200px]">
-                    <div className="ring-primary ring-offset-base-secondary rounded-full ring ring-offset-2 w-50 h-100%">
-                      <Image
-                        *** Here I want a large asteric ***
-                      />
-                    </div>
-                  </div>
-                </div>
-              </figure> 
-              
-    
-              
-
-
-
-              
-            </div>
-
-            
-
-           
-          </div>
-
-       
-          
-          Main Content Section 
-            
-
-
-          <div className="grid grid-rows-1 max-w-[875px] justify-around gap-4 w-full p-4">
-            <div className="p-4 flex flex-col justify-start bg-base-200 items-center">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full p-4">
-           
-              
-              
-              First Column 
-                
-
-
-                <div className="grid grid-cols-1">
-                  
-                </div>
-          
-          
-          Second Column 
-          
-
-                <div className="grid grid-cols-1">
-                  <div className="card bg-accent card-dash shadow-lg m-4 p-4">
-                    <div className="text-2xl font-bold mb-2">
-                      About i.c.stars
-                    </div>
-                    <p>
-                      Through i.c.stars, you’ll get the training, tools, and
-                      experience to land great jobs in tech. Watch the video to
-                      learn why our graduates chose i.c.stars and how the
-                      program has helped them build successful careers and
-                      positively influence their communities.
-                    </p>
-                    <div className="card-actions justify-end">
-                      <a
-                        href="https://www.icstars.org/program/"
-                        target="_blank"
-                        className="btn btn-secondary btn-outline"
-                      >
-                        Learn More
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="card bg-info shadow-md m-4 p-4">
-                    <h1 className="text-2xl text-success font-bold mb-2">
-                      About i.c.stars
-                    </h1>
-                    <p>
-                      Through i.c.stars, you’ll get the training, tools, and
-                      experience to land great jobs in tech. Watch the video to
-                      learn why our graduates chose i.c.stars and how the
-                      program has helped them build successful careers and
-                      positively influence their communities.
-                    </p>
-                    <div className="card-actions justify-end">
-                      <a
-                        href="https://www.icstars.org/program/"
-                        target="_blank"
-                        className="btn btn-secondary btn-outline"
-                      >
-                        Learn More
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-              
-              
-              Third Column 
-                
-
-                <div className="grid grid-cols-1">
-                  <div className="card bg-info shadow-md m-4 p-4">
-                    <h1 className="text-2xl font-bold mb-2">About i.c.stars</h1>
-                    <p>
-                      Through i.c.stars, you’ll get the training, tools, and
-                      experience to land great jobs in tech. Watch the video to
-                      learn why our graduates chose i.c.stars and how the
-                      program has helped them build successful careers and
-                      positively influence their communities.
-                    </p>
-                    <div className="card-actions justify-end">
-                      <a
-                        href="https://www.icstars.org/program/"
-                        target="_blank"
-                        className="btn btn-secondary btn-outline"
-                      >
-                        Learn More
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="card bg-base-100 shadow-md m-4 p-4">
-                    <h1 className="text-2xl font-bold mb-2">Team Code Mages</h1>
-                    <p>
-                      <a
-                        href="https://www.linkedin.com/in/bhatianehaa/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-500 underline"
-                      >
-                        Neha Bhatia
-                      </a>
-                      , Flynn Richardson, and myself.
-                    </p>
-                  </div>
-                </div>
-              </div>
-         
-              
-              
-              Footer Section 
-              
-
-
-              <div className="w-full flex justify-center mt-8">
-                <Link className="btn btn-secondary" href="/classroom">
-                  Enter classroom
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  */
 }
