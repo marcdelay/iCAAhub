@@ -1,7 +1,8 @@
 export const NAV_TABS = {
     Home: '/',
     Classroom: '/classroom',
-    Announcements: '/announcements'
+    Announcements: '/announcements',
+    Hire: '/candidates'
   };
   
 
