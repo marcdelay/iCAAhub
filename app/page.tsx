@@ -1,6 +1,3 @@
-// If you want to get better at flexbox and have fun check this link out: https://flexboxfroggy.com/ also for more coding games: https://codepip.com/
-// Page /candidates is not only for Cycle 56 feel free to add your data ~ Mia T =^.^= C56
-
 import React from "react";
 // import Link from "next/link";
 import Image from "next/image";
