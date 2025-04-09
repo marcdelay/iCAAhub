@@ -231,7 +231,7 @@ export default function CandidatesPage() {
   
         <main className="max-w-screen-xl mx-auto px-4 py-12">
           <section className="about mb-12 text-center">
-            <h3 className="text-3xl font-bold text-[#751040] uppercase mb-4">About i.c stars</h3>
+            <h3 className="text-3xl font-bold text-[#751040] uppercase mb-4">About i.c.stars</h3>
             <p className="text-lg text-gray-700 max-w-4xl mx-auto">
               i.c.stars works to activate a technology community of change agents to power social and economic freedom.
               Working with low-income adults, providing them with employment opportunities and preparing them for community-based
