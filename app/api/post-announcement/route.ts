@@ -21,34 +21,31 @@ export async function POST(request: Request): Promise<Response> {
     const { title, content } = res;
 
     // Find an existing user to set as the author (e.g., Admin)
-    const adminUser = await prisma.user.findFirst({
+    let adminUser = await prisma.user.findFirst({
       where: { name: "Jonathan" },
     });
 
     if (!adminUser) {
-      // If no admin user exists, create one
-      const newAdmin = await prisma.user.create({
-        data: {
-          name: "Guest",
-          email: "Guest@example.com", // Ensure this email is unique
-          role: "GUEST",
-        },
+      // Check if a user with the email already exists
+      const existingUser = await prisma.user.findUnique({
+        where: { email: "Guest@example.com" },
       });
 
-      // Create the post with the new admin as the author
-      const result = await prisma.post.create({
-        data: {
-          title,
-          content,
-          published: true,
-          authorId: newAdmin.user_id,
-        },
-      });
-
-      return NextResponse.json({ result }, { status: 201 });
+      if (!existingUser) {
+        // If no user exists with the email, create a new one
+        adminUser = await prisma.user.create({
+          data: {
+            name: "Guest",
+            email: "Guest@example.com", // Ensure this email is unique
+            role: "GUEST",
+          },
+        });
+      } else {
+        adminUser = existingUser; // Use the existing user
+      }
     }
 
-    // Create the post with the existing admin as the author
+    // Create the post with the admin user as the author
     const result = await prisma.post.create({
       data: {
         title,

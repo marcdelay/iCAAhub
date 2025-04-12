@@ -116,13 +116,27 @@ export default function ClassroomsPage() {
               onChange={async (e) => {
                 const selectedValue = e.target.value;
                 setUserId(selectedValue);
-
-                if (selectedValue === "4") {
+              
+                // Find the selected user
+                const selectedUser = users.find(user => user.id === selectedValue);
+              
+                if (!selectedUser) {
+                  setError("Selected user not found.");
+                  return;
+                }
+              
+                // Check if the selected user is an admin
+                if (selectedUser.role.toLowerCase() === "admin") {
                   // Redirect to admin dashboard
                   router.push("/admin");
                 } else {
                   // Fetch classrooms for other roles
-                  await fetchClassrooms();
+                  try {
+                    await fetchClassrooms();
+                  } catch (err) {
+                    console.error("Error fetching classrooms:", err);
+                    setError("Failed to fetch classrooms.");
+                  }
                 }
               }}
               className="select select-accent"
