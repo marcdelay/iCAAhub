@@ -2,6 +2,7 @@ Jonathan Ramirez
 Cycle 53
 
 
+
 # iCAA Central Hub Website
 
 **Table of Contents**
@@ -19,6 +20,14 @@ Cycle 53
 1. Install **Node.js** and **npm**: [Download here](https://nodejs.org/en/download).
 2. Set up SSH with GitHub: [Generate](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and [add](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) an SSH key.
 3. Install **VSCode**: [Download here](https://code.visualstudio.com/).
+
+### Learning Material
+
+1. Next.js App Router: (https://www.youtube.com/watch?v=ZVnjOPwW4ZA) 
+2. React, TailwindCSS, and DaisyUI: (https://www.youtube.com/watch?v=ymGB1lqP1CM)
+3. Flexbox fun: https://flexboxfroggy.com/ 
+4. Grid skills & more: https://codepip.com/
+
 
 ### Local setup
 
@@ -48,14 +57,14 @@ Cycle 53
 
 1. **Switch to the appropriate main branch**:
    ```bash
-   git checkout main-<project_name>
-   git pull origin main-<project_name>
+   git checkout main-icaa
+   git pull origin main-icaa
    ```
 2. **Create a feature branch**:
    ```bash
-   git checkout -b main-<project_name>/<your-branch-name>
+   git checkout -b main-icaa/<your-branch-name>
    ```
-   > _Replace `<project_name>` with your project name and `<your-branch-name>` with a descriptive name for your work, e.g., `main-hyd-career/update-home-body`._
+   > _Replace `<project_name>` with your project name and `<your-branch-name>` with a descriptive name for your work, e.g., `main-icaa-Announcments/update-admin-dashboard`._
 3. **Commit changes**:
    ```bash
    git add .
@@ -63,7 +72,7 @@ Cycle 53
    ```
 4. **Push your branch**:
    ```bash
-   git push origin main-<project_name>/<your-branch-name>
+   git push origin main-icaa/<your-branch-name>
    ```
    > ‼️ _Always specify the remote and branch to avoid pushing to the wrong branch!_
 5. **Open a Pull Request (PR)**:
@@ -105,7 +114,7 @@ Cycle 53
 2. **Components**
 
    - **Shared Components:** General React components used across the entire site should be placed under the `components/` folder. Do not modify these components unless necessary.
-   - **Page-Specific Components:** Components exclusive to a specific page or project (e.g., classroom portal, peer learning hub) should be stored within the corresponding project folder, e.g., `classroom/components/*.tsx`.
+   - **Page-Specific Components:** Components exclusive to a specific page or project (e.g., admin portal, peer learning hub) should be stored within the corresponding project folder, e.g., `admin/components/*.tsx`.
    - **Naming Convention:** The component file name must match the function name inside the file. Use PascalCase (e.g., `CreateAssignmentForm.tsx`).
    - **Client-Side Rendering:** Use `'use client'` only when absolutely necessary. If only part of a component requires client-side rendering, isolate that part into its own component.
 
@@ -158,6 +167,8 @@ Each team has a dedicated branch for collaboration, following this naming conven
 
 **Current Branches**
 
-- [`main-hyd-collaboration`](https://github.com/CodeYourDreams/cyd-website/tree/main-hyd-mentor) – For alumni or residents.
+- [`main-icaa`](https://github.com/JValentineC/iCAAhub/tree/main-icaa) – For alumni or residents.
+
+- [`main-icaa-skills-profile`](https://github.com/JValentineC/iCAAhub/tree/main-icaa-skills-profile) – For skills profile funcionality.
 
 To explore all branches or check their current status, visit the [repository branches page](https://github.com/JValentineC/iCAAhub/branches).
