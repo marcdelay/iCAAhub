@@ -1,0 +1,53 @@
+model Classroom {
+    id          Int       @id @default(autoincrement())
+    name        String
+    description String?
+    students    StudentClassroom[]
+    teachers    UserClassroom[]
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @updatedAt
+}
+
+model Student {
+    id          Int       @id @default(autoincrement())
+    firstName   String
+    lastName    String
+    email       String    @unique
+    classrooms  StudentClassroom[]
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @updatedAt
+}
+
+model StudentClassroom {
+    id          Int       @id @default(autoincrement())
+    studentId   Int
+    classroomId Int
+    student     Student   @relation(fields: [studentId], references: [id])
+    classroom   Classroom @relation(fields: [classroomId], references: [id])
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @updatedAt
+
+    @@unique([studentId, classroomId])
+}
+
+model Teacher {
+    id          Int       @id @default(autoincrement())
+    firstName   String
+    lastName    String
+    email       String    @unique
+    classrooms  UserClassroom[]
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @updatedAt
+}
+
+model UserClassroom {
+    id          Int       @id @default(autoincrement())
+    userId      Int
+    classroomId Int
+    user        Teacher   @relation(fields: [userId], references: [id])
+    classroom   Classroom @relation(fields: [classroomId], references: [id])
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @updatedAt
+
+    @@unique([userId, classroomId])
+}
