@@ -253,7 +253,7 @@ export default function AssignmentViewEditForm({ classroomId }: { classroomId: s
               }}
               updateQuestion={(index, field, value) => {
                 if (currentQuestion) {
-                  setCurrentQuestion(prev => {
+                  setCurrentQuestion((prev: any) => {
                     if (!prev) return prev;
                     return {
                       ...prev,

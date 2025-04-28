@@ -1,53 +1,57 @@
-model Classroom {
-    id          Int       @id @default(autoincrement())
-    name        String
-    description String?
-    students    StudentClassroom[]
-    teachers    UserClassroom[]
-    createdAt   DateTime  @default(now())
-    updatedAt   DateTime  @updatedAt
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model classroom {
+    classroom_id       Int       @id @default(autoincrement())
+    name               String
+    description        String?
+    created_at         DateTime  @default(now())
+    updated_at         DateTime  @updatedAt
+    student_classroom  student_classroom[]
+    teacher_classroom  teacher_classroom[]
+    assignment         assignment[]
 }
 
-model Student {
-    id          Int       @id @default(autoincrement())
-    firstName   String
-    lastName    String
-    email       String    @unique
-    classrooms  StudentClassroom[]
-    createdAt   DateTime  @default(now())
-    updatedAt   DateTime  @updatedAt
+model student {
+    student_id               Int       @id @default(autoincrement())
+    user_id                  Int       @unique
+    created_at               DateTime  @default(now())
+    updated_at               DateTime  @updatedAt
+    assignment_submission    assignment_submission[]
+    student_classroom        student_classroom[]
+    question_submission      question_submission[]
+    student_scholarship      student_scholarship[]
+    user                     user      @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
 }
 
-model StudentClassroom {
-    id          Int       @id @default(autoincrement())
-    studentId   Int
-    classroomId Int
-    student     Student   @relation(fields: [studentId], references: [id])
-    classroom   Classroom @relation(fields: [classroomId], references: [id])
-    createdAt   DateTime  @default(now())
-    updatedAt   DateTime  @updatedAt
+model student_classroom {
+    student_classroom_id    Int       @id @default(autoincrement())
+    student_id              Int
+    classroom_id            Int
+    student                 student   @relation(fields: [student_id], references: [student_id])
+    classroom               classroom @relation(fields: [classroom_id], references: [classroom_id])
+    created_at              DateTime  @default(now())
+    updated_at              DateTime  @updatedAt
 
-    @@unique([studentId, classroomId])
+    @@unique([student_id, classroom_id])
 }
 
-model Teacher {
-    id          Int       @id @default(autoincrement())
-    firstName   String
-    lastName    String
-    email       String    @unique
-    classrooms  UserClassroom[]
-    createdAt   DateTime  @default(now())
-    updatedAt   DateTime  @updatedAt
+model teacher {
+    teacher_id   Int       @id @default(autoincrement())
+    user_id      Int       @unique
+    created_at   DateTime  @default(now())
+    updated_at   DateTime  @updatedAt
+    user         user      @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
+    teacher_classroom teacher_classroom[]
 }
 
-model UserClassroom {
-    id          Int       @id @default(autoincrement())
-    userId      Int
-    classroomId Int
-    user        Teacher   @relation(fields: [userId], references: [id])
-    classroom   Classroom @relation(fields: [classroomId], references: [id])
-    createdAt   DateTime  @default(now())
-    updatedAt   DateTime  @updatedAt
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model teacher_classroom {
+    teacher_classrood_id   Int       @id @default(autoincrement())
+    teacher_id             Int
+    classroom_id           Int
+    teacher                teacher   @relation(fields: [teacher_id], references: [teacher_id])
+    classroom              classroom @relation(fields: [classroom_id], references: [classroom_id])
+    created_at             DateTime  @default(now())
+    updated_at             DateTime  @updatedAt
 
-    @@unique([userId, classroomId])
+    @@unique([teacher_id, classroom_id])
 }

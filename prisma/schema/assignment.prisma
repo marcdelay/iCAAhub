@@ -1,0 +1,48 @@
+model assignment {
+  assignment_id         Int                     @id @default(autoincrement())
+  classroom_id          Int
+  name                  String
+  description           String?
+  assignment_number     Int?
+  due_date              DateTime                @db.Date
+  created_at            DateTime?               @default(now()) @db.Timestamp(6)
+  classroom             classroom               @relation(fields: [classroom_id], references: [classroom_id], onDelete: Cascade)
+  assignment_submission assignment_submission[]
+  question              question[]
+}
+
+model assignment_submission {
+  assignment_submission_id Int                   @id @default(autoincrement())
+  assignment_id            Int
+  student_id               Int
+  s3_path                  String
+  submitted_at             DateTime?             @default(now()) @db.Timestamp(6)
+  assignment               assignment            @relation(fields: [assignment_id], references: [assignment_id], onDelete: NoAction, onUpdate: NoAction)
+  student                  student               @relation(fields: [student_id], references: [student_id], onDelete: NoAction, onUpdate: NoAction)
+  question_submission      question_submission[]
+}
+
+model question {
+  question_id              Int                   @id @default(autoincrement())
+  assignment_id            Int
+  question_number          Int?
+  name                     String?
+  prompt                   String?
+  example_solution_s3_path String?
+  accepted_file_types      String?
+  created_at               DateTime?             @default(now()) @db.Timestamp(6)
+  assignment               assignment            @relation(fields: [assignment_id], references: [assignment_id], onDelete: Cascade)
+  question_submission      question_submission[]
+}
+
+model question_submission {
+  question_submission_id   Int                   @id @default(autoincrement())
+  assignment_submission_id Int
+  question_id              Int
+  student_id               Int
+  s3_path                  String
+  created_at               DateTime?             @default(now()) @db.Timestamp(6)
+  assignment_submission    assignment_submission @relation(fields: [assignment_submission_id], references: [assignment_submission_id], onDelete: NoAction, onUpdate: NoAction)
+  question                 question              @relation(fields: [question_id], references: [question_id], onDelete: NoAction, onUpdate: NoAction)
+  student                  student               @relation(fields: [student_id], references: [student_id], onDelete: NoAction, onUpdate: NoAction)
+}

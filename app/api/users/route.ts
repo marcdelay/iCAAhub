@@ -17,7 +17,7 @@ export async function GET() {
     });
 
     // Map the result to include the count of classrooms
-    const usersWithClassroomCount = users.map((user) => ({
+    const usersWithClassroomCount = users.map((user: typeof users) => ({
       id: user.user_id, // Map user_id to id
       name: user.name,
       role: user.role,
