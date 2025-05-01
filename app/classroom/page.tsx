@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect, useCallback } from "react";
 import { Classroom } from "@/types/classroom";
 import Link from "next/link";
+import Header from "@/components/Header";
 
 interface User {
   id: string;
@@ -61,7 +62,9 @@ export default function ClassroomsPage() {
       }
 
       const data: User[] = await response.json();
-      setUsers(data.filter(user => user.role.toLowerCase() === role.toLowerCase()));
+      setUsers(
+        data.filter((user) => user.role.toLowerCase() === role.toLowerCase())
+      );
     } catch (err) {
       setError("Error fetching users");
       console.error("Error fetching users:", err);
@@ -83,106 +86,109 @@ export default function ClassroomsPage() {
   }, [userRole]);
 
   return (
-    <div className="container mx-auto min-h-screen flex flex-col justify-center items-center">
-      {!isFetched && ( // Conditionally render the input form
-        <div>
-          <label>
-            Choose your Role:
-            <select
-              value={userRole}
-              onChange={(e) => {
-                const selectedRole = e.target.value;
-                setUserRole(selectedRole);
-              }}
-              className="select select-accent"
-            >
-              <option value="" disabled>
-                Select Role
-              </option>
-              <option value="teacher">Teacher</option>
-              <option value="student">Student</option>
-              <option value="admin">Admin</option>
-            </select>
-          </label>
-        </div>
-      )}
-
-      {userRole && !isFetched && (
-        <div>
-          <label>
-            Choose your User:
-            <select
-              value={userId}
-              onChange={async (e) => {
-                const selectedValue = e.target.value;
-                setUserId(selectedValue);
-
-                if (selectedValue === "4") {
-                  // Redirect to admin dashboard
-                  router.push("/admin");
-                } else {
-                  // Fetch classrooms for other roles
-                  await fetchClassrooms();
-                }
-              }}
-              className="select select-accent"
-            >
-              <option value="" disabled>
-                Select User
-              </option>
-              {users.map((user) => (
-                <option key={user.id} value={user.id}>
-                  {user.name}
+    <main className=" min-h-screen">
+      <Header title="Learning Hub" subtitle="Select your role and user" />
+      <div className="container mx-auto flex flex-col justify-center items-center">
+        {!isFetched && ( // Conditionally render the input form
+          <div>
+            <label>
+              Choose your Role:
+              <select
+                value={userRole}
+                onChange={(e) => {
+                  const selectedRole = e.target.value;
+                  setUserRole(selectedRole);
+                }}
+                className="select select-accent"
+              >
+                <option value="" disabled>
+                  Select Role
                 </option>
-              ))}
-            </select>
-          </label>
-        </div>
-      )}
-
-      {/* Error Handling */}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {/* Rendering Logic */}
-      {loading ? (
-        <span className="loading loading-infinity loading-xl"></span>
-      ) : isFetched ? (
-        classrooms.length > 0 ? (
-          <div className="p-6">
-            <h1 className="text-3xl font-bold">Courses</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {classrooms.map((classroom) => (
-                <Link
-                  key={classroom.classroom_id}
-                  href={`/classroom/${classroom.classroom_id}/${userId}?classname=${classroom.name}`}
-                  className="no-underline"
-                >
-                  <div className="card card-side bg-base-300 shadow-2xl w-96 border-gray-100">
-                    <div className="card-body">
-                      <div className="card-actions justify-end">
-                        <button>
-                          {classroom.teacher_user_id === Number(userId)
-                            ? "Instructor"
-                            : "Student"}
-                        </button>
-                      </div>
-                      <h1 className="card-title text-blue-500">
-                        {classroom.name}
-                      </h1>
-                      <p className="font-light">{classroom.description}</p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+                <option value="admin">Admin</option>
+              </select>
+            </label>
           </div>
-        ) : (
-          <p>No classrooms found.</p>
-        )
-      ) : (
-        <p>
+        )}
+
+        {userRole && !isFetched && (
+          <div>
+            <label>
+              Choose your User:
+              <select
+                value={userId}
+                onChange={async (e) => {
+                  const selectedValue = e.target.value;
+                  setUserId(selectedValue);
+
+                  if (selectedValue === "4") {
+                    // Redirect to admin dashboard
+                    router.push("/admin");
+                  } else {
+                    // Fetch classrooms for other roles
+                    await fetchClassrooms();
+                  }
+                }}
+                className="select select-accent"
+              >
+                <option value="" disabled>
+                  Select User
+                </option>
+                {users.map((user) => (
+                  <option key={user.id} value={user.id}>
+                    {user.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+        )}
+
+        {/* Error Handling */}
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        {/* Rendering Logic */}
+        {loading ? (
           <span className="loading loading-infinity loading-xl"></span>
-        </p>
-      )}
-    </div>
+        ) : isFetched ? (
+          classrooms.length > 0 ? (
+            <div className="p-6">
+              <h1 className="text-3xl font-bold">Courses</h1>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {classrooms.map((classroom) => (
+                  <Link
+                    key={classroom.classroom_id}
+                    href={`/classroom/${classroom.classroom_id}/${userId}?classname=${classroom.name}`}
+                    className="no-underline"
+                  >
+                    <div className="card card-side bg-base-300 shadow-2xl w-96 border-gray-100">
+                      <div className="card-body">
+                        <div className="card-actions justify-end">
+                          <button>
+                            {classroom.teacher_user_id === Number(userId)
+                              ? "Instructor"
+                              : "Student"}
+                          </button>
+                        </div>
+                        <h1 className="card-title text-blue-500">
+                          {classroom.name}
+                        </h1>
+                        <p className="font-light">{classroom.description}</p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <p>No classrooms found.</p>
+          )
+        ) : (
+          <p>
+            <span className="loading loading-infinity loading-xl"></span>
+          </p>
+        )}
+      </div>
+    </main>
   );
 }

@@ -18,7 +18,8 @@ export default function RootLayout({
   return (
     <html data-theme="abyss" lang="en">
       <body className="max-h-screen flex flex-col">
-        <Navbar />
+         <Navbar />
+       
         
         {children} 
         <div>

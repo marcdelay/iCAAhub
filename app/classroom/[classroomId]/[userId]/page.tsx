@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { use } from 'react'; // Import React's `use` hook
 import TeacherForm from '@/components/TeacherForm';
 import StudentForm from '@/components/StudentForm';
+import Header from '@/components/Header';
 
 export default function ClassroomPage({ params }: { params: Promise<{ classroomId: string; userId: string }> }) {
   const { classroomId, userId: userIdString } = use(params); // Unwrap the `params` Promise
@@ -42,6 +43,8 @@ export default function ClassroomPage({ params }: { params: Promise<{ classroomI
   const normalizedUserRole = userRole.toUpperCase();
 
   return (
+    <main className="w-full mx-auto min-h-screen bg-base-200">
+      <Header title="Learning Hub" subtitle="Where everything is possible" />
     <div className="p-6 min-h-screen">
       {normalizedUserRole === 'STUDENT' && <StudentForm classroomId={classroomId} userId={userId} name={classname} />}
       {(normalizedUserRole === 'TEACHER' || normalizedUserRole === 'TEACHING_ASSISTANT') && (
@@ -55,5 +58,6 @@ export default function ClassroomPage({ params }: { params: Promise<{ classroomI
       )}
       {normalizedUserRole === 'GUEST' && <p>Welcome, Guest! Please select a role to continue.</p>}
     </div>
+    </main>
   );
 }

@@ -221,14 +221,7 @@ export default function CandidatesPage() {
     };
   
     return (
-      <div>
-        <header className="w-full py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url("/images/background.jpg")' }}>
-          <div className="bg-[#a60f3597] py-8 px-4 text-center">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white uppercase">Skills Profiles</h1>
-            <h2 className="text-3xl sm:text-6xl font-bold text-white uppercase mt-4">Alum & Residents</h2>
-          </div>
-        </header>
-  
+      <div>  
         <main className="max-w-screen-xl mx-auto px-4 py-12">
           <section className="about mb-12 text-center">
             <h3 className="text-3xl font-bold text-[#751040] uppercase mb-4">About i.c stars</h3>
