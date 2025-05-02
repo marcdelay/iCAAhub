@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Header from '@/components/Header';
 
 
 const group = [ // TODO replace with api call from DB later
@@ -222,7 +223,8 @@ export default function CandidatesPage() {
   
     return (
       <div>  
-        <main className="max-w-screen-xl mx-auto px-4 py-12">
+          <Header title="iCAA" subtitle="Alum & Residents" />
+          <main className="max-w-screen-xl mx-auto px-4 py-12">
           <section className="about mb-12 text-center">
             <h3 className="text-3xl font-bold text-[#751040] uppercase mb-4">About i.c stars</h3>
             <p className="text-lg text-gray-700 max-w-4xl mx-auto">
