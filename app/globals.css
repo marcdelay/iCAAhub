@@ -28,7 +28,7 @@
   --color-success: rgb(40, 40, 39);
   --color-success-content: rgb(248, 48, 48);
   --color-warning: #b9123f;
-  --color-warning-content: oklch(12% 0.042 264.695);
+  --color-warning-content: #fdfdfd;
   --color-error: rgb(248, 48, 48);
   --color-error-content: rgb(40, 40, 39);
   --radius-selector: 0.25rem;
