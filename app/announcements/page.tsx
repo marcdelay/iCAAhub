@@ -1,8 +1,9 @@
-'use client' 
+"use client";
 import { useState, useEffect } from "react";
 import { Post } from "@/components/Post";
 import Link from "next/link";
 import Button from "@/components/Button";
+import Header from "@/components/Header";
 
 type PostType = {
   id: number;
@@ -38,22 +39,24 @@ export default function AnnouncementsPage() {
   };
 
   return (
-    <div className="container mx-auto min-h-screen flex flex-col items-center">
-      <Link href={"/admin/make-announcement"}>
-        <Button>Make Announcement</Button>
-      </Link>
-      <h1>Announcements</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4">
-        {posts.map((post) => (
-          <Post
-            key={post.id}
-            id={post.id}
-            title={post.title}
-            content={post.content}
-            authorName={post.author.name}
-            onDelete={handleDelete} // Pass the delete handler
-          />
-        ))}
+    <div>
+      <Header title="What's New" subtitle="Announcements!" />
+      <div className="container mx-auto min-h-screen flex flex-col items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4">
+          {posts.map((post) => (
+            <Post
+              key={post.id}
+              id={post.id}
+              title={post.title}
+              content={post.content}
+              authorName={post.author.name}
+              onDelete={handleDelete} // Pass the delete handler
+            />
+          ))}
+        </div>
+        <Link href={"/announcements/make-announcement"}>
+          <Button>Make Announcement</Button>
+        </Link>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import  { useRouter } from "next/navigation";
+import Header from "@/components/Header";
 
 interface FormProps {
   onSubmit: (title: string, content: string) => void;
@@ -19,9 +20,11 @@ const FormComponent: React.FC<FormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <div className="container mx-auto min-h-screen flex flex-col justify-center items-center space-y-4">
+    <div>
+      <Header title="Make Announcement" subtitle="Post your announcement!" />
+    <div className="container mx-auto text-info-content min-h-screen flex flex-col m-5 items-center space-y-4">
       
-      <Link href={'/announcements'} className="btn">Posts</Link>
+      <Link href={'/announcements'} className="btn text-info-content">Back to Posts</Link>
       
       <form
         onSubmit={handleSubmit}
@@ -59,6 +62,7 @@ const FormComponent: React.FC<FormProps> = ({ onSubmit }) => {
           Submit
         </button>
       </form>
+   </div>
     </div>
   );
 };
