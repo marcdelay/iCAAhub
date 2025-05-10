@@ -2,11 +2,16 @@
 
 import React, { useEffect, useState } from "react";
 
+interface Classroom {
+  id: number;
+  name: string;
+}
+
 interface User {
   id: string;
   name: string;
   role: string;
-  classCount: number; // Updated to represent the count of classes
+  classrooms: Classroom[]; // Updated to include classrooms
 }
 
 export default function AdminDashboard() {
@@ -25,19 +30,12 @@ export default function AdminDashboard() {
         const fetchedUsers = await response.json();
         console.log("Fetched users:", fetchedUsers);
         setUsers(
-          fetchedUsers.map(
-            (user: {
-              id?: number; // Adjusted to match the API response
-              name?: string;
-              role: string;
-              classroomCount: number;
-            }) => ({
-              id: user.id ? user.id.toString() : "N/A", // Handle missing id
-              name: user.name || "Unknown",
-              role: user.role,
-              classCount: user.classroomCount, // Map classroomCount property
-            })
-          )
+          fetchedUsers.map((user: User) => ({
+            id: user.id.toString(),
+            name: user.name || "Unknown",
+            role: user.role,
+            classrooms: user.classrooms || [], // Map classrooms
+          }))
         );
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -51,7 +49,6 @@ export default function AdminDashboard() {
   }, []);
 
   const filteredUsers = users
-    .filter((user) => user.role.toLowerCase() !== "admin") // Exclude admins
     .filter((user) =>
       filterRole ? user.role.toLowerCase() === filterRole.toLowerCase() : true
     );
@@ -75,7 +72,6 @@ export default function AdminDashboard() {
                 <th>
                   <div className="flex items-center justify-between">
                     <span>Role</span>
-                    {/* Popover Button */}
                     <button
                       className="btn btn-circle btn-ghost btn-xs text-info"
                       popoverTarget="popover-role-filter"
@@ -99,10 +95,8 @@ export default function AdminDashboard() {
                         ></path>
                       </svg>
                     </button>
-
-                    {/* Popover Dropdown */}
                     <ul
-                      className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
+                      className="dropdown menu w-auto rounded-box"
                       popover="auto"
                       id="popover-role-filter"
                       style={
@@ -113,19 +107,20 @@ export default function AdminDashboard() {
                     >
                       <li>
                         <select
-                          className="select select-bordered w-full"
+                          className="select w-full"
                           value={filterRole}
                           onChange={(e) => setFilterRole(e.target.value)}
                         >
                           <option value="">All Roles</option>
                           <option value="student">Students</option>
                           <option value="teacher">Teachers</option>
+                          <option value="admin">Admins</option>
                         </select>
                       </li>
                     </ul>
                   </div>
                 </th>
-                <th>Class Count</th>
+                <th>Classrooms</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -135,15 +130,13 @@ export default function AdminDashboard() {
                   <th>{index + 1}</th>
                   <td>{user.name}</td>
                   <td>{user.role}</td>
-                  <td>{user.classCount}</td> {/* Display class count */}
                   <td>
-                    {/* Delete Button
-                <button
-                  className="btn btn-error btn-xs"
-                  onClick={() => handleDeleteUser(user.id)}
-                >
-                  Delete
-                </button> */}
+                    {user.classrooms.length > 0
+                      ? user.classrooms.map((classroom) => classroom.name).join(", ")
+                      : "None"}
+                  </td>
+                  <td>
+                    {/* Add actions like edit or delete here */}
                   </td>
                 </tr>
               ))}

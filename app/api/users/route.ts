@@ -10,21 +10,29 @@ export async function GET() {
         role: true,
         user_classroom: {
           select: {
-            classroom_id: true,
+            classroom: {
+              select: {
+                classroom_id: true,
+                name: true, // Include classroom name
+              },
+            },
           },
         },
       },
     });
 
-    // Map the result to include the count of classrooms
-    const usersWithClassroomCount = users.map((user) => ({
+    // Map the result to include classroom details
+    const usersWithDetails = users.map((user) => ({
       id: user.user_id, // Map user_id to id
       name: user.name,
       role: user.role,
-      classroomCount: user.user_classroom.length,
+      classrooms: user.user_classroom.map((uc) => ({
+        id: uc.classroom.classroom_id,
+        name: uc.classroom.name,
+      })),
     }));
 
-    return NextResponse.json(usersWithClassroomCount, { status: 200 });
+    return NextResponse.json(usersWithDetails, { status: 200 });
   } catch (error) {
     console.error("Error fetching users:", error);
     return NextResponse.json({ error: "Failed to fetch users" }, { status: 500 });

@@ -4,7 +4,7 @@ import Image from "next/image";
 function ProfileCard() {
   const user = {
     name: "Jonathan Ramirez",
-    role: "Software Developer",
+    role: "Admin",
     cycle: 53,
     avatarUrl:
       "https://res.cloudinary.com/dlyycwdgp/image/upload/v1744773737/Jonathon_Headshots_qnqbda.jpg",
@@ -34,8 +34,7 @@ function ProfileCard() {
 
         {/* Action Buttons */}
         <div className="mt-4 flex space-x-2">
-          <button className="btn btn-primary btn-sm">Edit</button>
-          <button className="btn btn-secondary btn-sm">Profile</button>
+          <a href="/admin" className="btn btn-secondary btn-sm">Admin Dashboard</a>
         </div>
       </div>
     </div>
