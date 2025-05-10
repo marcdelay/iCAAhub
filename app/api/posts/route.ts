@@ -19,6 +19,7 @@ export async function GET() {
       author: {
         name: post.author?.name ?? "Unknown",
       },
+      createdAt: post.created_at,
     }));
     return NextResponse.json(formattedPosts, { status: 200 });
   } catch (error) {

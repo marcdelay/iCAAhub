@@ -1,4 +1,4 @@
-'use client';  
+"use client";
 
 export default function DeleteAnnouncement({
   postID,
@@ -9,17 +9,18 @@ export default function DeleteAnnouncement({
 }) {
   const handleDelete = async () => {
     try {
+      console.log("Sending DELETE request to:", `/api/post/${postID}`);
       const response = await fetch(`/api/post/${postID}`, {
         method: "DELETE",
       });
+      const data = await response.json();
+      console.log("API response:", data);
 
       if (!response.ok) {
-        throw new Error("Failed to delete announcement");
+        throw new Error(data.error || "Failed to delete announcement");
       }
 
-      console.log("Announcement deleted successfully");
-
-      // Update the parent state
+      // Only update the parent state if the deletion was successful
       onDelete(postID);
     } catch (error) {
       console.error("Error deleting announcement:", error);
@@ -27,7 +28,7 @@ export default function DeleteAnnouncement({
   };
 
   return (
-    <button onClick={handleDelete} className="btn btn-primary">
+    <button onClick={handleDelete} className="hover:underline text-warning">
       Delete
     </button>
   );

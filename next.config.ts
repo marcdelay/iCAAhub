@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   devIndicators: false,
   images: {
-    domains: ["res.cloudinary.com"], // Add the hostname here
+    domains: ["res.cloudinary.com", "api.dicebear.com"], // Add the hostname here
   },
 };
 

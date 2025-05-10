@@ -161,6 +161,8 @@ model teacher {
 model user {
   user_id           Int                 @id @default(autoincrement())
   name              String?
+  first_name        String?
+  last_name         String?
   email             String              @unique
   role              UserRole           @default(GUEST)
   payment_info      String?
@@ -180,12 +182,14 @@ model user {
 }
 
 model Post {
-  id        Int      @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  author    user?    @relation(fields: [authorId], references: [user_id])
-  authorId  Int?
+  id         Int      @id @default(autoincrement())
+  title      String
+  content    String?
+  published  Boolean  @default(false)
+  created_at DateTime @default(now()) 
+  author     user?    @relation(fields: [authorId], references: [user_id])
+  authorId   Int?
+
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.

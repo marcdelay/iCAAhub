@@ -75,7 +75,7 @@ export default function Navbar() {
             <input
               type="search"
               placeholder="Search..."
-              className="rounded-l-full border border-info shadow-inner shadow-error py-1 px-4 text-lg w-full focus:border-error outline-none"
+              className="rounded-l-full border border-info shadow-inner shadow-info py-1 px-4 text-lg w-full focus:border-error outline-none"
             />
             <Button className="py-2 px-4 rounded-r-full border-info border border-1-0 flex-shrink-0">
               <Search />

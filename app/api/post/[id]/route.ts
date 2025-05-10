@@ -7,17 +7,19 @@ export async function DELETE(
   context: { params: Promise<{ id: string }> }
 ) {
   const { id } = await context.params;
-
+console.log("Received ID for deletion:", id); 
   if (!id) {
     return NextResponse.json({ error: "ID is required" }, { status: 400 });
   }
 
   const numericId = Number(id);
-  if (isNaN(numericId)) {
-    return NextResponse.json({ error: "Invalid ID format" }, { status: 400 });
-  }
+console.log("Parsed numeric ID:", numericId); // Debugging
+if (isNaN(numericId)) {
+  return NextResponse.json({ error: "Invalid ID format" }, { status: 400 });
+}
 
   try {
+    console.log("Attempting to delete post with ID:", numericId);
     const post = await prisma.post
       .delete({
         where: { id: numericId },

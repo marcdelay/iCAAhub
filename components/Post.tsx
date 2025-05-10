@@ -6,10 +6,12 @@ type PostProps = {
   title: string;
   content: string;
   authorName: string;
+  createdAt: string;
   onDelete: (id: number) => void; // Add onDelete prop
+  
 };
 
-export function Post({ id, title, content, authorName, onDelete }: PostProps) {
+export function Post({ id, title, content, authorName, createdAt, onDelete }: PostProps) {
   return (
     <div>
       <div className="card bg-base-100 image-full p-10 w-96 shadow-sm">
@@ -22,6 +24,7 @@ export function Post({ id, title, content, authorName, onDelete }: PostProps) {
           <p>{content}</p>
           <div className="card-actions justify-end">
             <p>{authorName}</p>
+            <p>{createdAt}</p>
           </div>
         </div>
       </div>

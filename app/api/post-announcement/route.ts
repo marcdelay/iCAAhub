@@ -35,6 +35,7 @@ export async function POST(request: Request): Promise<Response> {
         content,
         published: true,
         authorId: adminUserId, // Replace this with `userId` when dynamic user logic is implemented
+        created_at: new Date(),
       },
     });
 

@@ -1,9 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Post } from "@/components/Post";
+import { format } from "date-fns";
 import Link from "next/link";
 import Button from "@/components/Button";
 import Header from "@/components/Header";
+import DeleteAnnouncement from "@/components/DeleteAnnouncement";
 
 type PostType = {
   id: number;
@@ -12,6 +13,7 @@ type PostType = {
   author: {
     name: string;
   };
+  createdAt: string;
 };
 
 async function getPost(): Promise<PostType[]> {
@@ -34,29 +36,51 @@ export default function AnnouncementsPage() {
   }, []);
 
   const handleDelete = (id: number) => {
-    // Update the state to remove the deleted post
-    setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
-  };
+  setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+};
 
   return (
-    <div>
+    <div className="bg-info">
       <Header title="What's New" subtitle="Announcements!" />
-      <div className="container mx-auto min-h-screen flex flex-col items-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4">
+      
+      <div className="container mx-auto min-h-screen flex flex-col items-center border-2 border-info-content">
+        <div>
+          <Link href={"/announcements/make-announcement"}>
+          <Button className="mt-8 btn btn-outline btn-info-content">Make an Announcement</Button>
+        </Link>
+        </div>
+        <div className="w-full px-4">
           {posts.map((post) => (
-            <Post
-              key={post.id}
-              id={post.id}
-              title={post.title}
-              content={post.content}
-              authorName={post.author.name}
-              onDelete={handleDelete} // Pass the delete handler
-            />
+            <div key={post.id} className="chat chat-start mb-4">
+              <div className="chat-image avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    alt={`${post.author.name}'s avatar`}
+                    src={`https://api.dicebear.com/5.x/initials/svg?seed=${post.author.name}`}
+                  />
+                </div>
+              </div>
+              <div className="chat-header text-xl text-info-content">
+                  {post.title}
+              </div>
+              <div className="chat-bubble text-info">{post.content}</div> 
+              <div className="chat-footer text-info-content">
+              <div>   {post.author.name}  </div>
+                <time className="text-xs opacity-50 ml-2">
+                  {post.createdAt
+                    ? format(new Date(post.createdAt), "PPpp")
+                    : "Unknown date"}
+                </time>
+               <div>    <DeleteAnnouncement
+                  postID={post.id}
+                  onDelete={handleDelete}
+                  
+                /> </div>
+               
+              </div>
+            </div>
           ))}
         </div>
-        <Link href={"/announcements/make-announcement"}>
-          <Button className="mt-8">Make Announcement</Button>
-        </Link>
       </div>
     </div>
   );
