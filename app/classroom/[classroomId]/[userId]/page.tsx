@@ -43,9 +43,9 @@ export default function ClassroomPage({ params }: { params: Promise<{ classroomI
   const normalizedUserRole = userRole.toUpperCase();
 
   return (
-    <main className="w-full mx-auto min-h-screen bg-base-200">
+    <main className="w-full">
       <Header title="Learning Hub" subtitle="Where everything is possible" />
-    <div className="p-6 min-h-screen">
+    <div className="p-6 text-info">
       {normalizedUserRole === 'STUDENT' && <StudentForm classroomId={classroomId} userId={userId} name={classname} />}
       {(normalizedUserRole === 'TEACHER' || normalizedUserRole === 'TEACHING_ASSISTANT') && (
         <TeacherForm classroomId={classroomId} name={classname} userId={userId} />
