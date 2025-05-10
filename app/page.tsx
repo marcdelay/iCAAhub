@@ -2,6 +2,7 @@ import React from "react";
 // import Link from "next/link";
 import Header from "@/components/Header";
 import ProfileCard from "@/components/ProfileCard";
+import AnnouncementDash from "@/components/AnnouncementDash";
 
 export default function Home() {
   return (
@@ -10,31 +11,13 @@ export default function Home() {
         {/* container */}
         <Header title="Welcome to iCAA" subtitle="Alumni hub" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full py-4">
-          {/* Profile card */}
-          <ProfileCard />
-
-          <div className="card card-border col-span-3 xl:col-span-2 bg-warning m-4 p-4">
-            <h1 className="card-title justify-start text-warning-content font-bold">
-              Announcements
-            </h1>
-
-            <div className="grid grid-cols-3">
-              <p className="text-info-content text-center p-3 col-span-1">
-                Stay in-touch with the iCAA events and find opportunities to
-                take advantage of, or help-out with.
-              </p>
-              <p className="text-center col-span-1">
-                <a
-                  href="#"
-                  target="_blank"
-                  className="btn btn-secondary col-span-1 m-3 md:btn-lg btn-outline"
-                >
-                  Newsletter
-                </a>
-              </p>
-              <p className="text-warning-content col-span-1">qr code</p>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 w-full py-4 items-start">
+          <div className="col-span-1">
+            <ProfileCard />
+          </div>
+          <div className="col-span-1 md:col-span-4">
+            <AnnouncementDash />
+          </div>
           </div>
 
           <div className="card-border col-span-3 text-info-content xl:col-span-1 shadow-md m-4 p-4">
@@ -87,7 +70,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </div>
     </main>
   );
 }

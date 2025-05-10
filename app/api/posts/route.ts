@@ -5,6 +5,7 @@ export async function GET() {
   try {
     const posts = await prisma.post.findMany({
       where: { published: true },
+      orderBy: { id: "desc" }, // Sort by creation date in descending order
       include: {
         author: {
           select: { name: true },

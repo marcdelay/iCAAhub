@@ -55,7 +55,7 @@ export default function AnnouncementsPage() {
           ))}
         </div>
         <Link href={"/announcements/make-announcement"}>
-          <Button>Make Announcement</Button>
+          <Button className="mt-8">Make Announcement</Button>
         </Link>
       </div>
     </div>

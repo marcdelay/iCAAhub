@@ -56,3 +56,10 @@ p {
   border: var(--border) dashed var(--color-primary);
   border-radius: var(--radius-box);
 }
+
+H1 {
+  font-family: 'League Spartan', 'Blinker', 'Montserrat', sans-serif;
+  letter-spacing: 1.25px;
+  line-height: 1.55;
+  font-size: 2rem;
+}

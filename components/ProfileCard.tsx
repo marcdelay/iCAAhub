@@ -12,7 +12,7 @@ function ProfileCard() {
 
   return (
     <div className="col-span-3 xl:col-span-1 card bg-info border-4 m-4 p-4 rounded-lg shadow-lg">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center flex-shrink-0">
         {/* Avatar */}
         <div className="avatar avatar-online">
           <div className="ring-info-content ring-offset-info w-24 rounded-full ring-2 ring-offset-2">
