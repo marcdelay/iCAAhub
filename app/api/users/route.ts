@@ -161,3 +161,54 @@ export async function POST(req: Request) {
     );
   }
 }
+
+export async function DELETE(req: Request) {
+  try {
+    const { user_id } = await req.json();
+
+    // Validate the user_id
+    if (!user_id) {
+      return NextResponse.json(
+        { error: "user_id is required" },
+        { status: 400 }
+      );
+    }
+
+    // Parse user_id as an integer
+    const parsedUserId = parseInt(user_id, 10);
+    if (isNaN(parsedUserId)) {
+      return NextResponse.json(
+        { error: "Invalid user_id. Must be an integer." },
+        { status: 400 }
+      );
+    }
+
+    // Check if the user exists
+    const user = await prisma.user.findUnique({
+      where: { user_id: parsedUserId },
+    });
+
+    if (!user) {
+      return NextResponse.json(
+        { error: "User not found" },
+        { status: 404 }
+      );
+    }
+
+    // Delete the user (cascading deletions will handle related records)
+    await prisma.user.delete({
+      where: { user_id: parsedUserId },
+    });
+
+    return NextResponse.json(
+      { message: "User and related records deleted successfully" },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    return NextResponse.json(
+      { error: "Failed to delete user" },
+      { status: 500 }
+    );
+  }
+}

@@ -60,7 +60,7 @@ model classroom {
   start_date        DateTime?           @db.Date
   end_date          DateTime?           @db.Date
   assignment        assignment[]
-  teacher           teacher             @relation(fields: [teacher_user_id], references: [teacher_user_id], onDelete: NoAction, onUpdate: NoAction)
+  teacher           teacher             @relation(fields: [teacher_user_id], references: [teacher_user_id], onDelete: Cascade)
   student_classroom student_classroom[]
   user_classroom    user_classroom[]
 }
@@ -198,8 +198,8 @@ model user_classroom {
   user_id           Int
   classroom_id      Int
   role              UserRole  @default(TEACHER)
-  classroom         classroom @relation(fields: [classroom_id], references: [classroom_id], onDelete: NoAction, onUpdate: NoAction)
-  user              user      @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
+  classroom         classroom @relation(fields: [classroom_id], references: [classroom_id], onDelete: Cascade)
+  user              user      @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
 
   @@unique([user_id, classroom_id], map: "user_id_classroom_id")
 }
