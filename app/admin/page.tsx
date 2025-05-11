@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import AddUserForm from "@/components/AddUserForm";
+import Header from "@/components/Header";
 
 interface Classroom {
   id: number;
@@ -48,20 +50,21 @@ export default function AdminDashboard() {
     fetchUsers();
   }, []);
 
-  const filteredUsers = users
-    .filter((user) =>
-      filterRole ? user.role.toLowerCase() === filterRole.toLowerCase() : true
-    );
+  const filteredUsers = users.filter((user) =>
+    filterRole ? user.role.toLowerCase() === filterRole.toLowerCase() : true
+  );
 
   if (loading) {
     return <div>Loading...</div>;
   }
   return (
-    <main>
-      <div className="container mx-auto min-h-screen flex flex-col justify-start items-center space-y-4">
-        <div className="w-full flex justify-end mb-4">
-          <button className="btn btn-primary">Add User</button>
-        </div>
+  <main>
+    <Header title="Dashboard for" subtitle="Admin"/>
+    <div className="flex w-full min-h-screen space-x-4"> {/* Flex container for drawer and table */}
+      <div className="drawer lg:drawer-open">
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content flex flex-col mt-5">
+         <div className="flex justify-center w-full"> {/* Center the table */}
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
@@ -132,18 +135,38 @@ export default function AdminDashboard() {
                   <td>{user.role}</td>
                   <td>
                     {user.classrooms.length > 0
-                      ? user.classrooms.map((classroom) => classroom.name).join(", ")
+                      ? user.classrooms
+                          .map((classroom) => classroom.name)
+                          .join(", ")
                       : "None"}
                   </td>
-                  <td>
-                    {/* Add actions like edit or delete here */}
-                  </td>
+                  <td>{/* Add actions like edit or delete here */}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
-    </main>
-  );
+          <label
+            htmlFor="my-drawer-2"
+            className="btn btn-ghost drawer-button lg:hidden mt-8"
+          >
+            Add User
+          </label>
+        </div>
+        <div className="drawer-side">
+          <label
+            htmlFor="my-drawer-2"
+            aria-label="close sidebar"
+            className="drawer-overlay"
+          ></label>
+          <div className="m-4">
+            <AddUserForm />
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </main>
+);
 }
