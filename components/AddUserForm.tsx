@@ -36,7 +36,9 @@ const AddUserForm = () => {
     fetchClassrooms();
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value, type } = e.target as HTMLInputElement;
     const checked = (e.target as HTMLInputElement).checked;
     setFormData({
@@ -47,10 +49,20 @@ const AddUserForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Create the payload, excluding classroom_id if not applicable
     const payload = {
       ...formData,
-      invite_code: formData.invite_code.trim() === "" || formData.invite_code === "none" ? null : formData.invite_code,
+      invite_code:
+        formData.invite_code.trim() === "" || formData.invite_code === "none"
+          ? null
+          : formData.invite_code,
+      classroom_id:
+        formData.role === "TEACHER" || formData.role === "STUDENT"
+          ? formData.classroom_id
+          : undefined, // Set to undefined if not applicable
     };
+
     console.log("Submitting form data:", payload); // Debugging line
 
     try {
@@ -122,7 +134,9 @@ const AddUserForm = () => {
       </div>
       {(formData.role === "TEACHER" || formData.role === "STUDENT") && (
         <div>
-          <label className="block text-sm font-medium">Assign to Classroom</label>
+          <label className="block text-sm font-medium">
+            Assign to Classroom
+          </label>
           <select
             name="classroom_id"
             value={formData.classroom_id || ""}

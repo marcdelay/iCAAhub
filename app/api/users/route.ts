@@ -48,9 +48,20 @@ export async function POST(req: Request) {
     console.log("Incoming data:", data); // Debugging line
 
     // Validate required fields
-    if (!data.name || !data.email || !data.role || !data.classroom_id) {
+    if (!data.name || !data.email || !data.role) {
       return NextResponse.json(
-        { error: "Name, email, role, and classroom_id are required" },
+        { error: "Name, email, and role are required" },
+        { status: 400 }
+      );
+    }
+
+    // Validate classroom_id only for TEACHER and STUDENT roles
+    if (
+      (data.role === "TEACHER" || data.role === "STUDENT") &&
+      !data.classroom_id
+    ) {
+      return NextResponse.json(
+        { error: "classroom_id is required for TEACHER and STUDENT roles" },
         { status: 400 }
       );
     }
@@ -79,9 +90,10 @@ export async function POST(req: Request) {
         ? data.invite_code
         : null;
 
-    // Parse classroom_id as an integer
-    const classroomId = parseInt(data.classroom_id, 10);
-    if (isNaN(classroomId)) {
+    // Parse classroom_id as an integer (only if provided)
+    const classroomId =
+      data.classroom_id !== undefined ? parseInt(data.classroom_id, 10) : null;
+    if (data.classroom_id && (classroomId === null || isNaN(classroomId))) {
       return NextResponse.json(
         { error: "Invalid classroom_id. Must be an integer." },
         { status: 400 }
@@ -110,21 +122,23 @@ export async function POST(req: Request) {
       });
 
       // Assign the student to a classroom
-      await prisma.student_classroom.create({
-        data: {
-          student_user_id: newUser.user_id,
-          classroom_id: classroomId,
-        },
-      });
+      if (classroomId) {
+        await prisma.student_classroom.create({
+          data: {
+            student_user_id: newUser.user_id,
+            classroom_id: classroomId,
+          },
+        });
 
-      // Update user_classroom for the student
-      await prisma.user_classroom.create({
-        data: {
-          user_id: newUser.user_id,
-          classroom_id: classroomId,
-          role: "STUDENT",
-        },
-      });
+        // Update user_classroom for the student
+        await prisma.user_classroom.create({
+          data: {
+            user_id: newUser.user_id,
+            classroom_id: classroomId,
+            role: "STUDENT",
+          },
+        });
+      }
     } else if (data.role === "TEACHER") {
       // Create a record in the teacher table
       await prisma.teacher.create({
@@ -134,13 +148,15 @@ export async function POST(req: Request) {
       });
 
       // Assign the teacher to a classroom
-      await prisma.user_classroom.create({
-        data: {
-          user_id: newUser.user_id,
-          classroom_id: classroomId,
-          role: "TEACHER",
-        },
-      });
+      if (classroomId) {
+        await prisma.user_classroom.create({
+          data: {
+            user_id: newUser.user_id,
+            classroom_id: classroomId,
+            role: "TEACHER",
+          },
+        });
+      }
     }
 
     return NextResponse.json(newUser, { status: 201 });
